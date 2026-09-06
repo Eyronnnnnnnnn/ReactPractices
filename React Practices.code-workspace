@@ -1,0 +1,9 @@
+{
+  "folders": [
+    { "path": "." },
+    { "path": "practice-react" }
+  ],
+  "settings": {
+    "tailwindCSS.config": "practice-react/tailwind.config.js"
+  }
+}
