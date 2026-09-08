@@ -27,7 +27,17 @@
 
     return (
       <Todolist todos = {todos}/>
+      /* 
+  Dito pala ikaw magse-set ng name ng props mo.
+  Kunwari yan nga `todos` ang name ng prop na naglalaman ng todos array.
+  Ngayon sa child component na `Todolist`, 
+  ang parameter ay `props` — at yun ang gagamitin mong name 
+  para makuha yung prop na galing sa parent.
+  Kaya `props.todos.map()` ang gamit para ma-loop yung array.
+*/
     );
   }
 
   export default App;
+
+  // 
