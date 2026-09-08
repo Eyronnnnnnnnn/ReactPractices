@@ -7,7 +7,11 @@
       <div className="w-screen h-screen bg-gray-800 flex justify-center align items-center">
         <div >
           <h1 className="text-white">welcome to todolist</h1>
-          <p>{props.todos.map(todo => <li className="text-white" key={todo.id}>{todo.text}</li>)}</p>
+          <div>
+            {props.todos.map(todo=>(
+              <p className="text-white" key={todo.id}>{todo.text}</p>
+            ))}
+          </div>
         </div>
       </div>
     )
