@@ -12,7 +12,7 @@ function Todolist(props) {
           type="text"
           placeholder="TODO"
         ></input>
-        <button className="w-40 h-6 bg-gray-900 text-white ">Submit</button>
+        <button onClick={props.handleAddTodo} className="w-40 h-6 bg-gray-900 text-white  ">Submit</button>
         <div>
           {props.todos.map((todo) => (
             <p className="text-white" key={todo.id}>
@@ -26,6 +26,9 @@ function Todolist(props) {
 }
 
 function App(props) {
+
+
+
   const [todos, setTodos] = useState([
     { id: 1, text: "code every day", done: false },
     { id: 2, text: "bebe time every day", done: false },
@@ -34,8 +37,21 @@ function App(props) {
 
   const [newTodo, setNewTodo] = useState("");
 
+  function handleAddTodo(){
+
+    if(newTodo.trim() === "") return;
+
+  const newtodoobject = {
+    id: todos.length + 1,
+    text: newTodo,
+    done : false 
+  };
+
+  setTodos([...todos , newtodoobject ]);
+}
+
   return (
-    <Todolist todos={todos} newtodo={newTodo} setnewTodo={setNewTodo} />
+    <Todolist todos={todos} newtodo={newTodo} setnewTodo={setNewTodo} handleAddTodo = {handleAddTodo}/>
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
   Kunwari yan nga `todos` ang name ng prop na naglalaman ng todos array.
