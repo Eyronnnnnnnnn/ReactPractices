@@ -12,7 +12,7 @@ function Todolist(props) {
           type="text"
           placeholder="TODO"
         ></input>
-        <button onClick={props.handleAddTodo} className="w-40 h-6 bg-gray-900 text-white  ">Submit</button>
+        <button onClick={props.clickable} className="w-40 h-6 bg-gray-900 text-white  ">Submit</button>
         <div>
           {props.todos.map((todo) => (
             <p className="text-white" key={todo.id}>
@@ -51,7 +51,7 @@ function App(props) {
 }
 
   return (
-    <Todolist todos={todos} newtodo={newTodo} setnewTodo={setNewTodo} handleAddTodo = {handleAddTodo}/>
+    <Todolist todos={todos} newtodo={newTodo} setnewTodo={setNewTodo} clickable = {handleAddTodo}/>
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
   Kunwari yan nga `todos` ang name ng prop na naglalaman ng todos array.
@@ -59,6 +59,7 @@ function App(props) {
   ang parameter ay `props` — at yun ang gagamitin mong name 
   para makuha yung prop na galing sa parent.
   Kaya `props.todos.map()` ang gamit para ma-loop yung array.
+  d
 */
   );
 }
