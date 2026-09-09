@@ -59,7 +59,7 @@ function App(props) {
   ang parameter ay `props` — at yun ang gagamitin mong name 
   para makuha yung prop na galing sa parent.
   Kaya `props.todos.map()` ang gamit para ma-loop yung array.
-  d
+  dd
 */
   );
 }
