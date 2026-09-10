@@ -51,12 +51,17 @@ function Todolist(props) {
               <span className="text-[#191919]">
                 {todo.id}. {todo.text}
               </span>
+               <label>
+                <input type="checkbox" />
+                Done
+              </label>
               <button
                 onClick={() => props.deleted(todo.id)}
                 className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
               >
                 Delete
               </button>
+             
             </div>
           ))}
         </div>
