@@ -37,9 +37,8 @@ function Todolist(props) {
             className="flex items-center gap-1 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
           >
             <TrashIcon className="h-5 w-5" />
-           RESET
+            RESET
           </button>
-
         </div>
 
         <div className="h-44 overflow-auto border border-gray-300 rounded-md p-2">
@@ -49,7 +48,9 @@ function Todolist(props) {
               className="flex items-center justify-between bg-gray-50 px-3 py-2 rounded-md mb-2"
               key={todo.id}
             >
-              <span className="text-[#191919]">{todo.id}.   {todo.text}</span>
+              <span className="text-[#191919]">
+                {todo.id}. {todo.text}
+              </span>
               <button
                 onClick={() => props.deleted(todo.id)}
                 className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
@@ -72,42 +73,34 @@ function App(props) {
   ]);
 
   const [newTodo, setNewTodo] = useState("");
-  const [nextid ,SetnextId] = useState();
+  const [nextid, setnextId] = useState(4);
 
   function handleAddTodo() {
     if (newTodo.trim() === "") return;
 
     const newtodoobject = {
-      id: todos.length + 1,
+      id: nextid,
       text: newTodo,
       done: false,
     };
 
     setTodos([...todos, newtodoobject]);
     setNewTodo("");
+    setnextId(nextid + 1);
   }
 
   function deletedTodo(id) {
-    const deleted = setTodos(todos.filter((todo) => todo.id !== id));
+    
+    setTodos(todos.filter((todo) => todo.id !== id));
+    
   }
 
-  function helloworld() {
-    const helloObject = {
-      id: todos.length + 1,
-      text: "Hello world!!",
-      done: false,
-    };
-  }
 
-  function ResetFunction(){
-    const resetlist = {
-      id: 0 ,
-      text : "",
-      done: false
-    };
 
+  function ResetFunction() {
     setTodos([]);
-
+    setnextId(1);
+    
   }
 
   return (
@@ -117,7 +110,7 @@ function App(props) {
       setnewTodo={setNewTodo}
       clickable={handleAddTodo}
       deleted={deletedTodo}
-      reset= {ResetFunction}
+      reset={ResetFunction}
     />
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
