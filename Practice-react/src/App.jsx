@@ -53,7 +53,8 @@ function Todolist(props) {
               </span>
                <label>
                 <input 
-                onClick={props.toggle(todo.id)}
+                checked = {todo.done}
+                onChange={()=>props.toggle(todo.id)}
                 type="checkbox" />
                 Done
               </label>
