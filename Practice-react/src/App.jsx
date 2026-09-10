@@ -33,12 +33,13 @@ function Todolist(props) {
             Submit
           </button>
           <button
-            onClick={() => props.deleted(todo.id)}
+            onClick={props.reset()}
             className="flex items-center gap-1 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
           >
             <TrashIcon className="h-5 w-5" />
-            Delete
+           RESET
           </button>
+
         </div>
 
         <div className="h-44 overflow-auto border border-gray-300 rounded-md p-2">
@@ -97,6 +98,17 @@ function App(props) {
     };
   }
 
+  function ResetFunction(){
+    const resetlist = {
+      id: 0 ,
+      text : "",
+      done: false
+    };
+
+    setTodos([todos , ResetFunction]);
+
+  }
+
   return (
     <Todolist
       todos={todos}
@@ -104,6 +116,7 @@ function App(props) {
       setnewTodo={setNewTodo}
       clickable={handleAddTodo}
       deleted={deletedTodo}
+      reset= {ResetFunction}
     />
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
