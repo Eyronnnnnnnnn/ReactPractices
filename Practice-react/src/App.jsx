@@ -18,6 +18,8 @@ function Todolist(props) {
           Developed by <hr></hr>
         </h1>
 
+        <h1>Task Done : {props.donetodo} Task Created : {props.todos.length}</h1>
+
         <div className="flex gap-2 mb-4">
           <input
             className="flex-1 border-2 border-[#191919] rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
@@ -120,6 +122,8 @@ function App(props) {
     
   }
 
+    const doneCount = todos.filter((todo)=> todo.done=== true).length;
+
   return (
     <Todolist
       todos={todos}
@@ -129,6 +133,7 @@ function App(props) {
       deleted={deletedTodo}
       reset={ResetFunction}
       toggle = {toggledone}
+      donetodo = {doneCount}
     />
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
