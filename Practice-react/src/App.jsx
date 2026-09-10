@@ -1,41 +1,59 @@
 import { useState } from "react";
+import { TrashIcon } from "@heroicons/react/24/solid";
 
 function Todolist(props) {
   return (
-    <div className="w-screen h-screen bg-gray-800 flex justify-center align items-center">
-      <div>
-        <h1 className="text-white font-bold text-center">
-          WELCOME TO TODOLIST
-        </h1>
-        <input
-          className=" w-80"
-          onChange={(event) => props.setnewTodo(event.target.value)}
-          value={props.newtodo}
-          type="text"
-          placeholder="TODO"
-        ></input>
-        <br></br>
-        <button
-          onClick={props.clickable}
-          className="w-40 h-6 bg-gray-900 text-white  "
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white shadow-lg rounded-lg p-6 w-[28rem]">
+        <h1
+          className="
+          text-[clamp(2rem,2vw,2.5rem)] 
+          font-semibold 
+          tracking-[-0.06em] 
+          text-[#191919] 
+          text-center 
+          font-sans mb-6
+        "
         >
-          Submit
-        </button>
-        <button className="bg-red-900 w-40 h-6">RESET</button>
-        <div className=" h-44 overflow-auto border p-1 border-blue-900 rounded-lg flex flex-col scrollbar-thumb-red-500">
-          <div className="text-white">LIST </div>
+          Developed by <hr></hr>
+        </h1>
+
+        <div className="flex gap-2 mb-4">
+          <input
+            className="flex-1 border-2 border-[#191919] rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+            onChange={(event) => props.setnewTodo(event.target.value)}
+            value={props.newtodo}
+            type="text"
+            placeholder="Enter a task..."
+          />
+          <button
+            onClick={props.clickable}
+            className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition"
+          >
+            Submit
+          </button>
+          <button
+            onClick={() => props.deleted(todo.id)}
+            className="flex items-center gap-1 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
+          >
+            <TrashIcon className="h-5 w-5" />
+            Delete
+          </button>
+        </div>
+
+        <div className="h-44 overflow-auto border border-gray-300 rounded-md p-2">
+          <div className="text-[#191919] font-semibold mb-2">Todo List</div>
           {props.todos.map((todo) => (
             <div
-              className="text-white flex items-center justify-between w-full"
+              className="flex items-center justify-between bg-gray-50 px-3 py-2 rounded-md mb-2"
               key={todo.id}
             >
-              <div></div>
-              <span className="flex-1">{todo.text}</span>
+              <span className="text-[#191919]">{todo.text}</span>
               <button
-                onClick={()=>props.deleted(todo.id)}
-                className="bg-red-900 w-16 rounded-sm z mb-2"
+                onClick={() => props.deleted(todo.id)}
+                className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
               >
-                delete
+                Delete
               </button>
             </div>
           ))}
