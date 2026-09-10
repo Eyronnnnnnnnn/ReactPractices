@@ -33,7 +33,7 @@ function Todolist(props) {
             Submit
           </button>
           <button
-            onClick={props.reset()}
+            onClick={props.reset}
             className="flex items-center gap-1 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
           >
             <TrashIcon className="h-5 w-5" />
@@ -49,7 +49,7 @@ function Todolist(props) {
               className="flex items-center justify-between bg-gray-50 px-3 py-2 rounded-md mb-2"
               key={todo.id}
             >
-              <span className="text-[#191919]">{todo.text}</span>
+              <span className="text-[#191919]">{todo.id}.   {todo.text}</span>
               <button
                 onClick={() => props.deleted(todo.id)}
                 className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
@@ -72,6 +72,7 @@ function App(props) {
   ]);
 
   const [newTodo, setNewTodo] = useState("");
+  const [nextid ,SetnextId] = useState();
 
   function handleAddTodo() {
     if (newTodo.trim() === "") return;
@@ -105,7 +106,7 @@ function App(props) {
       done: false
     };
 
-    setTodos([todos , ResetFunction]);
+    setTodos([]);
 
   }
 
