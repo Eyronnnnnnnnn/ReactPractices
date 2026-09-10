@@ -4,7 +4,7 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 function Todolist(props) {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-6 w-[28rem]">
+      <div className="bg-white shadow-lg rounded-lg p-6 w-[40rem]">
         <h1
           className="
           text-[clamp(2rem,2vw,2.5rem)] 
@@ -52,7 +52,9 @@ function Todolist(props) {
                 {todo.id}. {todo.text}
               </span>
                <label>
-                <input type="checkbox" />
+                <input 
+                onClick={props.toggle(todo.id)}
+                type="checkbox" />
                 Done
               </label>
               <button
@@ -100,6 +102,15 @@ function App(props) {
     
   }
 
+  function toggledone(id){
+    setTodos(todos.map((todo)=> 
+      todo.id === id
+     ? {...todo , done : !todo.done}
+      : todo
+    )
+  );
+  }
+
 
 
   function ResetFunction() {
@@ -116,6 +127,7 @@ function App(props) {
       clickable={handleAddTodo}
       deleted={deletedTodo}
       reset={ResetFunction}
+      toggle = {toggledone}
     />
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
