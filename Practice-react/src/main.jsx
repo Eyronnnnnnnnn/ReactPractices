@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 // import App from './App.jsx'
 import Practice from './practice.jsx'
+import Inputname from './inputname.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App  /> */}
-    <Practice />
+    {/* <Practice /> */}
+    <Inputname />
+    
   </StrictMode>
 )
 
