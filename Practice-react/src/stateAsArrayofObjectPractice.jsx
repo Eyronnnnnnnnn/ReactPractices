@@ -44,6 +44,8 @@ export default function StateArrayofObjectPractice (){
         {id : 3 , brand : "Subaru" , Price : "$1,600" , done : false , img : "https://pluspng.com/img-png/subaru-logo-png-subaru-logo-hd-png-meaning-information-2560x1440.png"},
         {id : 4 , brand : "Mazda" , Price : "$3,400" , done : false , img : "https://logodownload.org/wp-content/uploads/2019/11/mazda-logo.png"}
          {id : 4 , brand : "Mazda" , Price : "$3,400" , done : false , img : "https://logodownload.org/wp-content/uploads/2019/11/mazda-logo.png"}
+          {id : 4 , brand : "Mazda" , Price : "$3,400" , done : false , img : "https://logodownload.org/wp-content/uploads/2019/11/mazda-logo.png"}
+           {id : 4 , brand : "Mazda" , Price : "$3,400" , done : false , img : "https://logodownload.org/wp-content/uploads/2019/11/mazda-logo.png"}
     ]);
 
     function addCar(){
