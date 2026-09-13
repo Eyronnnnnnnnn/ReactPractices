@@ -6,6 +6,7 @@ import Practice from './practice.jsx'
 import Inputname from './inputname.jsx'
 import StateAsArray from './stateAsArray.jsx'
 import StateArrayofObject from './stateAsArrayofObject.jsx'
+import StateArrayofObjectPractice from './stateAsArrayofObjectPractice.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,7 +14,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Practice /> */}
     {/* <Inputname /> */}
     {/* <StateAsArray /> */}
-    <StateArrayofObject />
+    {/* <StateArrayofObject /> */}
+    <StateArrayofObjectPractice/>
 
   </StrictMode>
 )
