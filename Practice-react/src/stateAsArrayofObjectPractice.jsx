@@ -9,7 +9,7 @@ function Display(props) {
       </h1>
 
       <div className="space-y-5">
-        {props.cars.map((car,index) => (
+        {props.cars.map((car) => (
           <div
             key={car.id}
             className="flex items-center gap-4 bg-neutral-800 p-4 rounded-lg border border-neutral-700 hover:border-red-500 transition-colors"
@@ -28,15 +28,15 @@ function Display(props) {
 
             <div className="flex flex-col gap-2">
               <input
-              key={index}
-              value={props.priceUpdate}
-                onChange={(event)=> props.setUpdatedPrice(event.target.value)}
+              key={car.id}
+              value={props.priceUpdate[car.id]}
+                onChange={(event)=> props.setUpdatedPrice({...props.priceUpdate , [car.id]: event.target.value})}
                 type="text"
                 placeholder="Set Price $"
                 className="px-2 py-1 rounded-md text-sm bg-neutral-700 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
               />
               <button 
-              onClick={()=> updatePrice()}
+              onClick={()=> props.updatePrice(car.id)}
               className="bg-yellow-500 text-black px-3 py-1 rounded-md font-semibold text-xs uppercase hover:bg-yellow-600 transition">
                 Update
               </button>
@@ -73,7 +73,7 @@ export default function StateArrayofObjectPractice (){
        
     ]);
 
-    const [priceUpdate , setUpdatedPrice] = useState("");
+    const [priceUpdate , setUpdatedPrice] = useState({});
 
     function addCar(){
         setCars([...cars, {id : cars.length , brand : "lamborghini" , Price : "$8,900 ",done : false}])
@@ -84,8 +84,8 @@ export default function StateArrayofObjectPractice (){
       
     }
 
-    function updatePrice(){
-      setCars([...cars , {price : updatePrice}]);
+    function updatePrice(id){
+      setCars(cars.map((car)=> car.id === id ? {...car , Price : priceUpdate[id]} : car))
     }
 
 
