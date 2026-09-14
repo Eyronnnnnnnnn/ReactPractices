@@ -9,6 +9,9 @@ function Display(props) {
       </h1>
 
       <div className="space-y-5">
+
+
+
         {props.cars.map((car) => (
           <div
             key={car.id}
@@ -23,7 +26,7 @@ function Display(props) {
               <h2 className="text-lg font-semibold text-white uppercase tracking-wide">
                 {car.brand}
               </h2>
-              <p className="text-red-400 font-medium">{car.Price}</p>
+              <p className="text-red-400 font-medium"> ${car.Price}</p>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -66,10 +69,10 @@ function Display(props) {
 export default function StateArrayofObjectPractice (){
 
     const [cars,setCars] = useState([
-        {id : 1 , brand : "Honda" , Price : "$1,600" , done : false , img : "https://www.pngplay.com/wp-content/uploads/7/Honda-Logo-Transparent-Background.png"},
-        {id : 2 , brand : "Toyota" , Price : "$3,400" , done : false , img : "https://tse1.mm.bing.net/th/id/OIP.arB4JG8H6hDcgqNFtVLLYgHaGe?r=0&w=1574&h=1376&rs=1&pid=ImgDetMain&o=7&rm=3  "},  
-        {id : 3 , brand : "Subaru" , Price : "$1,600" , done : false , img : "https://pluspng.com/img-png/subaru-logo-png-subaru-logo-hd-png-meaning-information-2560x1440.png"},
-        {id : 4 , brand : "Mazda" , Price : "$3,400" , done : false , img : "https://logodownload.org/wp-content/uploads/2019/11/mazda-logo.png"}
+        {id : 1 , brand : "Honda" , Price : "1,600" , done : false , img : "https://www.pngplay.com/wp-content/uploads/7/Honda-Logo-Transparent-Background.png"},
+        {id : 2 , brand : "Toyota" , Price : "3,400" , done : false , img : "https://tse1.mm.bing.net/th/id/OIP.arB4JG8H6hDcgqNFtVLLYgHaGe?r=0&w=1574&h=1376&rs=1&pid=ImgDetMain&o=7&rm=3  "},  
+        {id : 3 , brand : "Subaru" , Price : "1,600" , done : false , img : "https://pluspng.com/img-png/subaru-logo-png-subaru-logo-hd-png-meaning-information-2560x1440.png"},
+        {id : 4 , brand : "Mazda" , Price : "3,400" , done : false , img : "https://logodownload.org/wp-content/uploads/2019/11/mazda-logo.png"}
        
     ]);
 
@@ -90,14 +93,14 @@ export default function StateArrayofObjectPractice (){
 
 
 
-return(
-<Display
-cars = {cars}
-addCar = {addCar}
-deleteCar = {deleteCar}
-priceUpdate = {priceUpdate}
-setUpdatedPrice = {setUpdatedPrice}
-updatePrice ={updatePrice}
-/>
-)
+return   (
+   <Display
+   cars = {cars}
+   addCar = {addCar}
+   deleteCar = {deleteCar}
+   priceUpdate = {priceUpdate}
+   setUpdatedPrice = {setUpdatedPrice}
+   updatePrice ={updatePrice}
+  />
+   )
 }

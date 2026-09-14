@@ -2,23 +2,27 @@ import { DivideIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 function CoffeeList(props) {
+ 
   return (
+    
     <div className="bg-red-400 h-screen w-screen flex flex-col justify-center items-center ">
       <div className="bg-slate-500 h-96 w-80 rounded-xl p-5">
         <div className="w-70 h-10 flex flex-col justify-center text-center">
           <h1>Coffee List</h1>
         </div>
         <div className=" h-10 flex  justify-center items-center ">
+          
           <input
+          key={props.coffees.item}
           value={props.newPrice}
           onChange={(event)=> props.setNewcoffee(event.target.value) }
           placeholder="ENTER COFFEE"></input>
         </div>
         <div className=" h-10 flex  justify-center items-center">
           <input
-          key={props.coffees.id}
-          value={props.newCoffee}
-          onChange={(event)=> props.setNewPrice(event.target.value) }
+          
+          value={props.coffees.price}
+          onChange={(event)=> props.setNewPrice(event.target.value)}
           className="w-32" placeholder="ENTER Price"></input>
           <button
           onClick={() =>  props.newCoffeelist()}
@@ -46,8 +50,8 @@ export default function Practice2() {
   ]);
 
   const [newCoffee ,setNewcoffee] = useState("");
-
   const [newPrice , setNewPrice] = useState("");
+
   const [nextid , setnextid] =useState(4);
 
  const setcoflist ={
@@ -57,9 +61,9 @@ export default function Practice2() {
  }
 
 function newCoffeelist(id){
-    setCoffee([...coffees , setcoflist[id]])
-    newCoffee("");
-    setNewPrice(0);
+    setCoffee([...coffees, {id : nextid , item : newCoffee , price : newPrice}])
+    setNewcoffee("");
+    setNewPrice("");
     setnextid( nextid + 1);
 }
 
