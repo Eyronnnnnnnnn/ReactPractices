@@ -28,7 +28,7 @@ function Display(props) {
 
             <div className="flex flex-col gap-2">
               <input
-              key={props.cars.id}
+              key={index}
               value={props.priceUpdate}
                 onChange={(event)=> props.setUpdatedPrice(event.target.value)}
                 type="text"
@@ -85,7 +85,7 @@ export default function StateArrayofObjectPractice (){
     }
 
     function updatePrice(){
-      setCars([...cars , {id : cars.length , price : updatePrice}]);
+      setCars([...cars , {price : updatePrice}]);
     }
 
 
