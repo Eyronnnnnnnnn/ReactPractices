@@ -16,8 +16,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Inputname /> */}
     {/* <StateAsArray /> */}
     {/* <StateArrayofObject /> */}
-    <StateArrayofObjectPractice/>
-    {/* <Practice2 /> */}
+    {/* <StateArrayofObjectPractice/> */}
+    <Practice2 />
 
   </StrictMode>
 )
