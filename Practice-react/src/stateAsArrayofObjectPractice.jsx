@@ -77,9 +77,11 @@ export default function StateArrayofObjectPractice (){
     ]);
 
     const [priceUpdate , setUpdatedPrice] = useState({});
+    const [nextId , setnextId] = useState(5);
 
     function addCar(){
-        setCars([...cars, {id : cars.length , brand : "lamborghini" , Price : "$8,900 ",done : false}])
+        setCars([...cars, {id : nextId , brand : "lamborghini" , Price : "$8,900 ",done : false}])
+        setnextId(nextId + 1);
     }
 
     function deleteCar(id){
