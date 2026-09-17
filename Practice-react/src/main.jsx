@@ -8,6 +8,7 @@ import StateAsArray from './stateAsArray.jsx'
 import StateArrayofObject from './stateAsArrayofObject.jsx'
 import StateArrayofObjectPractice from './stateAsArrayofObjectPractice.jsx'
 import Practice2 from './practice2.jsx'
+import Eventhandler from './eventhandler.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,7 +18,8 @@ createRoot(document.getElementById('root')).render(
     {/* <StateAsArray /> */}
     {/* <StateArrayofObject /> */}
     {/* <StateArrayofObjectPractice/> */}
-    <Practice2 />
+    {/* <Practice2 /> */}
+    <Eventhandler />
 
   </StrictMode>
 )
