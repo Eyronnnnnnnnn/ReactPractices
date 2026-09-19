@@ -134,6 +134,7 @@ function App(props) {
       reset={ResetFunction}
       toggle = {toggledone}
       donetodo = {doneCount}
+      
     />
     /* 
   Dito pala ikaw magse-set ng name ng props mo.
