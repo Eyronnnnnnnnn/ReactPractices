@@ -20,7 +20,9 @@ return(
                 <button 
                  className="w-16 h-16 bg-red-500"
                 value={"1"}
-                onClick={(event)=> props.handleNumber(event.target.value)}
+               
+                onClick={(event)=> 
+                    props.handleNumber(event.target.value)}
                 >1</button>
                 
                 <button
@@ -57,7 +59,7 @@ return(
 export default function Calculator(){
 
     const [num1 , setNum1] = useState(null);
-    const [operator , setOperator] = useState(null)
+    const [operator , setOperator] = useState(null);
     const [display, setDisplay] = useState("0");
     
 
@@ -77,7 +79,7 @@ export default function Calculator(){
     const secondnum = parseFloat(display);
     let result;
 
-    switch(operator ){
+    switch(operator){
         case "+":
             result = num1 + secondnum;
             break;
@@ -88,11 +90,11 @@ export default function Calculator(){
     setDisplay(result.toString())
     setOperator(null)
     setNum1(null)
-
  }
 
    function clear(){
     setNum1("0");
+    setDisplay("")
    }
 
    

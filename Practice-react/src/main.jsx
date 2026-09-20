@@ -10,6 +10,8 @@ import StateArrayofObjectPractice from './stateAsArrayofObjectPractice.jsx'
 import Practice2 from './practice2.jsx'
 import Eventhandler from './eventhandler.jsx'
 import Calculator from './calculator.jsx'
+import FunctionalUpdate from './functionalUpdate.jsx'
+import LiftingState from './liftingState.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,7 +23,9 @@ createRoot(document.getElementById('root')).render(
     {/* <StateArrayofObjectPractice/> */}
     {/* <Practice2 /> */}
     {/* <Eventhandler /> */}
-    <Calculator/>
+    {/* <Calculator/> */}
+    {/* <FunctionalUpdate /> */}
+    <LiftingState/>
 
   </StrictMode>
 )
