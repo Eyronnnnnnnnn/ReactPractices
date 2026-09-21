@@ -12,6 +12,7 @@ import Eventhandler from './eventhandler.jsx'
 import Calculator from './calculator.jsx'
 import FunctionalUpdate from './functionalUpdate.jsx'
 import LiftingState from './liftingState.jsx'
+import ShopList from './shoplist.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,7 +26,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Eventhandler /> */}
     {/* <Calculator/> */}
     {/* <FunctionalUpdate /> */}
-    <LiftingState/>
+    {/* <LiftingState/> */}
+    <ShopList />
 
   </StrictMode>
 )

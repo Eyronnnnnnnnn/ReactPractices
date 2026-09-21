@@ -114,16 +114,8 @@ export default function Shoplist() {
                             <input
                               className="w-5 h-5 accent-green-600"
                               type="checkbox"
-                              checked={item.status}
-                              onChange={() =>
-                                setShopItem(
-                                  shopItem.map((p) =>
-                                    p.id === item.id
-                                      ? { ...p, status: !p.status }
-                                      : p,
-                                  ),
-                                )
-                              }
+                           
+                            
                             />
                             <span>Status</span>
                           </label>
