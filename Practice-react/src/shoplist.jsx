@@ -19,10 +19,25 @@ function Modal({ isOpen, onClose, children }) {
     </div>
   );
 }
+function Deletebtn(props) {
+  return (
+    <button
+      onClick={props.del}
+      className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition font-semibold"
+    >
+      DELETE
+    </button>
+  );
+}
+
+// function ProdUp(){
+//   return()
+// }
 
 // PARENT CLASS
 export default function Shoplist() {
   const [isOpen, setIsOpen] = useState(false);
+  const [deletebtn, setDeleteBtn] = useState(false);
 
   const imageSrc =
     "https://logos-world.net/wp-content/uploads/2023/01/Shopee-Logo-2015.png";
@@ -30,6 +45,7 @@ export default function Shoplist() {
   const [shopItem, setShopItem] = useState([
     {
       id: 1,
+      quantity : 1,
       img: "https://i5.walmartimages.com/seo/Great-Value-Hydrate-Alkaline-Water-33-8-fl-oz-Bottle_905d23b6-4ec1-4f54-8b2d-6af4dee76c00.16590c5fe05b21f5de337e6c1fd08c25.jpeg",
       Product: " AlkalineWater",
       Description: "This water is so good and afordable ",
@@ -38,6 +54,7 @@ export default function Shoplist() {
     },
     {
       id: 2,
+      quantity : 1,
       img: "https://hamrobazaar.blr1.cdn.digitaloceanspaces.com/User/Posts/2026/09/16/e2196e05-5ded-4db4-c115-efd39930450e.png",
       Product: " Iphone 18 Pro Max 100TB",
       Description: "Apple Products ",
@@ -46,6 +63,7 @@ export default function Shoplist() {
     },
     {
       id: 3,
+      quantity : 1,
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
       Description: "Affordable Speaker",
@@ -54,6 +72,7 @@ export default function Shoplist() {
     },
     {
       id: 4,
+       quantity : 1,
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
       Description: "Affordable Speaker",
@@ -61,6 +80,40 @@ export default function Shoplist() {
       status: false,
     },
   ]);
+
+  const handleDelete = (id) => {
+    setShopItem(shopItem.filter((item) => item.id !== id));
+  };
+  
+  const handleProductIncrement = (id)=>{
+    setShopItem(shopItem.map((item)=>
+      // const convertedPrice = number(item.price);
+       item.id === id ? {...item, quantity: item.quantity + 1, price: parseInt(item.price * 2)}
+       : item
+    ));
+   
+  }
+
+  const handleProductDecrement = (id)=>{
+    setShopItem(
+      shopItem.map((item)=>{
+        if(item.id === id && item.quantity > 1){
+          return{
+            ...item,quantity: item.quantity - 1
+          };
+        }
+        return item;
+      })
+    )
+  };
+
+  const toggle = (id) => {
+    setShopItem(
+      shopItem.map((item) =>
+        item.id === id ? { ...item, status: !item.status } : item,
+      ),
+    );
+  };
 
   return (
     <div className="bg-orange-600 w-screen h-screen flex flex-col">
@@ -118,33 +171,61 @@ export default function Shoplist() {
                       <td className="border border-gray-300 px-4 py-2 text-gray-600">
                         {item.Description}
                       </td>
-                      <td className="border border-gray-300 px-4 py-2 text-gray-800">
-                        {item.price}
+                      
+                      <td className="border border-gray-300   text-gray-800 ">
+                        <div className=" flex items-center justify-between p-3 rounded-md shadow-sm">
+                          {/* Price */}
+                          <div className="w-1/3 text-center font-semibold text-gray-900">
+                            {item.price}
+                          </div>
+
+                          {/* Quantity */}
+                          <div className="w-1/3 text-center">
+                            <span className=" text-xs text-gray-600">
+                              Quantity 
+                            </span>
+                            <span className="text-sm font-bold">
+                              {item.quantity}
+                            </span>
+                          </div>
+
+                          {/* Controls */}
+                          <div className="w-1/3 flex items-center justify-center gap-2">
+                            <button
+                            onClick={()=> handleProductIncrement(item.id)}
+                            className="w-8 h-8 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition">
+                              +
+                            </button>
+                            <div><h1>{item.quantity}</h1></div>
+                            <button 
+                            onClick={()=> handleProductDecrement(item.id)}
+                            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 transition">
+                              −
+                            </button>
+                          </div>
+                        </div>
                       </td>
+
                       <td className="border border-gray-300 px-4 py-2">
                         {item.status ? (
-                          <span className="text-green-600 font-semibold">
-                            Available
-                          </span>
+                          <span className="text-green-600 ">AVAILABLE</span>
                         ) : (
-                          <span className="text-red-600 font-semibold">
-                            Not Available
-                          </span>
+                          <span className="text-red-700 ">NOT AVAILABLE X</span>
                         )}
                       </td>
                       <td className="border border-gray-300 px-4 py-4 text-center">
                         <div className="flex items-center justify-center gap-4">
                           <label className="flex items-center gap-2">
                             <input
+                              onClick={() => toggle(item.id)}
+                              checked={item.status}
                               className="w-5 h-5 accent-green-600"
                               type="checkbox"
                             />
                             <span>Status</span>
                           </label>
 
-                          <button className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition font-semibold">
-                            Remove
-                          </button>
+                          <Deletebtn del={() => handleDelete(item.id)} />
                         </div>
                       </td>
                     </tr>
@@ -162,35 +243,46 @@ export default function Shoplist() {
               ADD NEW PRODUCTS
             </h1>
           </div>
-         
-        </div><div className=" w-full h-16 flex items-center px-6 gap-4">
-  <label className="text-black font-semibold">PRODUCT NAME:</label>
-  <input 
-    className="h-8 px-2 rounded border 4px border-gray-300 flex-1 " 
-    type="text" 
-  />
-</div>
+        </div>
+        <div className="space-y-4 p-6 bg-white rounded-lg shadow-md">
+          {/* Product Name */}
+          <div className="flex items-center gap-4">
+            <label className="w-40 text-gray-700 font-medium">
+              Product Name:
+            </label>
+            <input
+              className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              type="text"
+            />
+          </div>
 
-<div className="w-full h-16 flex items-center px-6 gap-4">
-  <label className="text-black font-semibold">PRODUCT DESCRIPTION:</label>
-  <input 
-    className="h-8 px-2 rounded border border-gray-300 flex-1" 
-    type="text" 
-  />
-</div>
+          {/* Product Description */}
+          <div className="flex items-center gap-4">
+            <label className="w-40 text-gray-700 font-medium">
+              Description:
+            </label>
+            <input
+              className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              type="text"
+            />
+          </div>
 
-<div className=" w-full h-16 flex items-center px-6 gap-4">
-  <label className="text-black font-semibold">PRICE:</label>
-  <input 
-    className="h-8 px-2 rounded border border-gray-300 flex-1" 
-    type="text" 
-  />
-</div>
+          {/* Price */}
+          <div className="flex items-center gap-4">
+            <label className="w-40 text-gray-700 font-medium">Price:</label>
+            <input
+              className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              type="text"
+            />
+          </div>
 
- <div className="w-full flex items-center justify-center">
-  <button className="bg-green-600 w-28 h-12 rounded-lg">ADD ITEM</button>
- </div>
-
+          {/* Submit Button */}
+          <div className="flex justify-center">
+            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md transition">
+              Add Item
+            </button>
+          </div>
+        </div>
       </Modal>
     </div>
   );
