@@ -49,7 +49,7 @@ export default function Shoplist() {
       img: "https://i5.walmartimages.com/seo/Great-Value-Hydrate-Alkaline-Water-33-8-fl-oz-Bottle_905d23b6-4ec1-4f54-8b2d-6af4dee76c00.16590c5fe05b21f5de337e6c1fd08c25.jpeg",
       Product: " AlkalineWater",
       Description: "This water is so good and afordable ",
-      price: "$2",
+      price: "2",
       status: false,
     },
     {
@@ -58,7 +58,7 @@ export default function Shoplist() {
       img: "https://hamrobazaar.blr1.cdn.digitaloceanspaces.com/User/Posts/2026/09/16/e2196e05-5ded-4db4-c115-efd39930450e.png",
       Product: " Iphone 18 Pro Max 100TB",
       Description: "Apple Products ",
-      price: "$1200",
+      price: "1200",
       status: false,
     },
     {
@@ -67,7 +67,7 @@ export default function Shoplist() {
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
       Description: "Affordable Speaker",
-      price: "$400",
+      price: "400",
       status: false,
     },
     {
@@ -76,7 +76,7 @@ export default function Shoplist() {
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
       Description: "Affordable Speaker",
-      price: "$400",
+      price: "400",
       status: false,
     },
   ]);
@@ -86,11 +86,14 @@ export default function Shoplist() {
   };
   
   const handleProductIncrement = (id)=>{
-    setShopItem(shopItem.map((item)=>
-      // const convertedPrice = number(item.price);
-       item.id === id ? {...item, quantity: item.quantity + 1, price: parseInt(item.price * 2)}
-       : item
-    ));
+    setShopItem(shopItem.map((item)=>{
+      const convertedPrice = Number(item.price);
+      return  item.id === id
+     ? {...item , quantity : item.quantity + 1 } 
+    : item
+    }
+    
+    ))
    
   }
 
@@ -176,7 +179,7 @@ export default function Shoplist() {
                         <div className=" flex items-center justify-between p-3 rounded-md shadow-sm">
                           {/* Price */}
                           <div className="w-1/3 text-center font-semibold text-gray-900">
-                            {item.price}
+                            ${Number(item.price) * item.quantity}
                           </div>
 
                           {/* Quantity */}
@@ -196,7 +199,7 @@ export default function Shoplist() {
                             className="w-8 h-8 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition">
                               +
                             </button>
-                            <div><h1>{item.quantity}</h1></div>
+                            <div><h1>{item.quantity }</h1></div>
                             <button 
                             onClick={()=> handleProductDecrement(item.id)}
                             className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 transition">
