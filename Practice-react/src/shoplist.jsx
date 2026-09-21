@@ -1,7 +1,29 @@
-import { useState } from "react";
+import { use, useState } from "react";
+
+// CHILD COMPONENT FOR MODAL
+function Modal({ isOpen, onClose, children }) {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="relative bg-white rounded-lg shadow-lg w-70 h-96">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 text-gray-600 hover:text-black"
+        >
+          ✕
+        </button>
+
+        {children}
+      </div>
+    </div>
+  );
+}
 
 // PARENT CLASS
 export default function Shoplist() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const imageSrc =
     "https://logos-world.net/wp-content/uploads/2023/01/Shopee-Logo-2015.png";
 
@@ -30,7 +52,7 @@ export default function Shoplist() {
       price: "$400",
       status: false,
     },
-      {
+    {
       id: 4,
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
@@ -38,7 +60,6 @@ export default function Shoplist() {
       price: "$400",
       status: false,
     },
-    
   ]);
 
   return (
@@ -58,7 +79,10 @@ export default function Shoplist() {
               <h2 className="text-2xl font-bold text-gray-700">
                 🛒 Shop Items
               </h2>
-              <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition font-semibold">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition font-semibold"
+              >
                 + Add Item
               </button>
             </div>
@@ -114,8 +138,6 @@ export default function Shoplist() {
                             <input
                               className="w-5 h-5 accent-green-600"
                               type="checkbox"
-                           
-                            
                             />
                             <span>Status</span>
                           </label>
@@ -133,6 +155,43 @@ export default function Shoplist() {
           </div>
         </div>
       </div>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className=" w-full h-16 flex items-center px-4 flex flex-col justify-center ">
+          <div>
+            <h1 className="text-orange-700 text-lg font-bold text">
+              ADD NEW PRODUCTS
+            </h1>
+          </div>
+         
+        </div><div className=" w-full h-16 flex items-center px-6 gap-4">
+  <label className="text-black font-semibold">PRODUCT NAME:</label>
+  <input 
+    className="h-8 px-2 rounded border 4px border-gray-300 flex-1 " 
+    type="text" 
+  />
+</div>
+
+<div className="w-full h-16 flex items-center px-6 gap-4">
+  <label className="text-black font-semibold">PRODUCT DESCRIPTION:</label>
+  <input 
+    className="h-8 px-2 rounded border border-gray-300 flex-1" 
+    type="text" 
+  />
+</div>
+
+<div className=" w-full h-16 flex items-center px-6 gap-4">
+  <label className="text-black font-semibold">PRICE:</label>
+  <input 
+    className="h-8 px-2 rounded border border-gray-300 flex-1" 
+    type="text" 
+  />
+</div>
+
+ <div className="w-full flex items-center justify-center">
+  <button className="bg-green-600 w-28 h-12 rounded-lg">ADD ITEM</button>
+ </div>
+
+      </Modal>
     </div>
   );
 }
