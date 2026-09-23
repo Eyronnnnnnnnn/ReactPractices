@@ -1,4 +1,4 @@
-import {useState } from "react";
+import { useState } from "react";
 
 // CHILD COMPONENT FOR MODAL
 function Modal({ isOpen, onClose, children }) {
@@ -37,11 +37,8 @@ function Deletebtn(props) {
 // PARENT CLASS
 export default function Shoplist() {
   const [isOpen, setIsOpen] = useState(false);
-  const [deletebtn, setDeleteBtn] = useState(false);
-  
-  const [newid ,setnewId] = useState(5);
 
-
+  const [newid, setnewId] = useState(5);
 
   const imageSrc =
     "https://logos-world.net/wp-content/uploads/2023/01/Shopee-Logo-2015.png";
@@ -85,10 +82,10 @@ export default function Shoplist() {
     },
   ]);
 
-      const total = shopItem.reduce(
-      (acc, curr)=>  acc + curr.price * curr.quantity,
-      0
-    )
+  const total = shopItem.reduce(
+    (acc, curr) => acc + curr.price * curr.quantity,
+    0,
+  );
 
   const handleDelete = (id) => {
     setShopItem(shopItem.filter((item) => item.id !== id));
@@ -125,33 +122,30 @@ export default function Shoplist() {
     );
   };
 
-  
-
-   const [newprodName , setnewprodName] = useState("");
-   const [newprodDescrip , setnewprodDescrip] = useState("");
-   const [newprodPrice , newnewprodPrice] = useState("");
-
+  const [newprodName, setnewprodName] = useState("");
+  const [newprodDescrip, setnewprodDescrip] = useState("");
+  const [newprodPrice, newnewprodPrice] = useState("");
+  const [newprodImg, setnewprodImg] = useState("");
 
   const newShopitems = [
-   {
+    {
       id: newid,
       quantity: 1,
-      img: "",
+      img: newprodImg,
       Product: newprodName,
-      Description: newprodDescrip ,
+      Description: newprodDescrip,
       price: newprodPrice,
       status: false,
-   }
-
+    },
   ];
 
-   const addnewitemprod = (id)=>{
-    setShopItem([...shopItem , ...newShopitems]);
-     setnewId(newid + 1)
-    setnewprodName("")
-    setnewprodDescrip("")
+  const addnewitemprod = (id) => {
+    setShopItem([...shopItem, ...newShopitems]);
+    setnewId(newid + 1);
+    setnewprodName("");
+    setnewprodDescrip("");
     newnewprodPrice("");
-   }
+  };
 
   return (
     <div className="bg-orange-600 w-screen h-screen flex flex-col">
@@ -195,93 +189,107 @@ export default function Shoplist() {
                     <th className="border border-gray-300 px-4 py-2">ACTION</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  {shopItem.map((item) => (
-                    <tr
-                      key={item.id}
-                      className="hover:bg-gray-100 even:bg-gray-50 transition"
-                    >
-                      <td className="border border-gray-300 px-4 py-2 font-medium ">
-                        <div className="flex items-center gap-3">
-                          <img className="w-14 w-14" src={item.img} alt="" />
-                          {item.Product}
-                        </div>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 text-gray-600">
-                        {item.Description}
-                      </td>
-
-                      <td className="border border-gray-300   text-gray-800 ">
-                        <div className=" flex items-center justify-between p-3 rounded-md shadow-sm">
-                          {/* Price */}
-                          <div className="w-1/3 text-center font-semibold text-gray-900">
-                          
-                           ${item.price * item.quantity} 
+                  {shopItem.length === 0 ? (
+                    <tr>
+                      <td colSpan="5">
+                        <div className=" w-full  h-full flex justify-center items-center">
+                          <div>
+                            <h2>NO ITEM YET </h2>
                           </div>
-
-                          {/* Quantity */}
-                          <div className="w-1/3 text-center">
-                            <span className=" text-xs text-gray-600">
-                              Quantity
-                            </span>
-                            <span className="text-sm font-bold">
-                              {item.quantity}
-                            </span>
-                          </div>
-
-                          {/* Controls */}
-                          <div className="w-1/3 flex items-center justify-center gap-2">
-                            <button
-                              onClick={() => handleProductIncrement(item.id)}
-                              className="w-8 h-8 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition"
-                            >
-                              +
-                            </button>
-                            <div>
-                              <h1>{item.quantity}</h1>
-                            </div>
-                            <button
-                              onClick={() => handleProductDecrement(item.id)}
-                              className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 transition"
-                            >
-                              −
-                            </button>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td className="border border-gray-300 px-4 py-2">
-                        {item.status ? (
-                          <span className="text-green-600 ">AVAILABLE</span>
-                        ) : (
-                          <span className="text-red-700 ">NOT AVAILABLE X</span>
-                        )}
-                      </td>
-                      <td className="border border-gray-300 px-4 py-4 text-center">
-                        <div className="flex items-center justify-center gap-4">
-                          <label className="flex items-center gap-2">
-                            <input
-                              onClick={() => toggle(item.id)}
-                              checked={item.status}
-                              className="w-5 h-5 accent-green-600"
-                              type="checkbox"
-                            />
-                            <span>Status</span>
-                          </label>
-
-                          <Deletebtn del={() => handleDelete(item.id)} />
                         </div>
                       </td>
                     </tr>
-                  ))}
+                  ) : (
+                    shopItem.map((item) => (
+                      <tr
+                        key={item.id}
+                        className="hover:bg-gray-100 even:bg-gray-50 transition"
+                      >
+                        <td className="border border-gray-300 px-4 py-2 font-medium ">
+                          <div className="flex items-center gap-3">
+                            <img className="w-14 w-14" src={item.img} alt="" />
+                            {item.Product}
+                          </div>
+                        </td>
+                        <td className="border border-gray-300 px-4 py-2 text-gray-600">
+                          {item.Description}
+                        </td>
+
+                        <td className="border border-gray-300   text-gray-800 ">
+                          <div className=" flex items-center justify-between p-3 rounded-md shadow-sm">
+                            {/* Price */}
+                            <div className="w-1/3 text-center font-semibold text-gray-900">
+                              ${item.price * item.quantity}
+                            </div>
+
+                            {/* Quantity */}
+                            <div className="w-1/3 text-center">
+                              <span className=" text-xs text-gray-600">
+                                Quantity
+                              </span>
+                              <span className="text-sm font-bold">
+                                {item.quantity}
+                              </span>
+                            </div>
+
+                            {/* Controls */}
+                            <div className="w-1/3 flex items-center justify-center gap-2">
+                              <button
+                                onClick={() => handleProductIncrement(item.id)}
+                                className="w-8 h-8 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+                              >
+                                +
+                              </button>
+                              <div>
+                                <h1>{item.quantity}</h1>
+                              </div>
+                              <button
+                                onClick={() => handleProductDecrement(item.id)}
+                                className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+                              >
+                                −
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+
+                        <td className="border border-gray-300 px-4 py-2">
+                          {item.status ? (
+                            <span className="text-green-600 ">AVAILABLE</span>
+                          ) : (
+                            <span className="text-red-700 ">
+                              NOT AVAILABLE X
+                            </span>
+                          )}
+                        </td>
+                        <td className="border border-gray-300 px-4 py-4 text-center">
+                          <div className="flex items-center justify-center gap-4">
+                            <label className="flex items-center gap-2">
+                              <input
+                                onClick={() => toggle(item.id)}
+                                checked={item.status}
+                                className="w-5 h-5 accent-green-600"
+                                type="checkbox"
+                              />
+                              <span>Status</span>
+                            </label>
+
+                            <Deletebtn del={() => handleDelete(item.id)} />
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-      
-<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className=" w-full h-16 flex items-center px-4 flex flex-col justify-center ">
           <div>
             <h1 className="text-orange-700 text-lg font-bold text">
@@ -289,15 +297,28 @@ export default function Shoplist() {
             </h1>
           </div>
         </div>
+
         <div className="space-y-4 p-6 bg-white rounded-lg shadow-md">
+          <div className="flex items-center gap-4">
+            <label className="w-40 text-gray-700 font-medium">
+              Image Link :
+            </label>
+            <input
+              value={newprodImg}
+              onChange={(event) => setnewprodImg(event.target.value)}
+              className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              type="text"
+            />
+          </div>
+
           {/* Product Name */}
           <div className="flex items-center gap-4">
             <label className="w-40 text-gray-700 font-medium">
               Product Name:
             </label>
             <input
-            value={newprodName}
-            onChange={(event) => setnewprodName(event.target.value) }
+              value={newprodName}
+              onChange={(event) => setnewprodName(event.target.value)}
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               type="text"
             />
@@ -309,8 +330,8 @@ export default function Shoplist() {
               Description:
             </label>
             <input
-            value={newprodDescrip}
-            onChange={(event)=> setnewprodDescrip(event.target.value)}
+              value={newprodDescrip}
+              onChange={(event) => setnewprodDescrip(event.target.value)}
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               type="text"
             />
@@ -320,9 +341,8 @@ export default function Shoplist() {
           <div className="flex items-center gap-4">
             <label className="w-40 text-gray-700 font-medium">Price:</label>
             <input
-            
-            value={newprodPrice}
-            onChange={(event)=> newnewprodPrice(event.target.value)}
+              value={newprodPrice}
+              onChange={(event) => newnewprodPrice(event.target.value)}
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               type="text"
             />
@@ -331,16 +351,14 @@ export default function Shoplist() {
           {/* Submit Button */}
           <div className="flex justify-center">
             <button
-           
-            onClick={addnewitemprod}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md transition">
+              onClick={addnewitemprod}
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md transition"
+            >
               Add Item
             </button>
           </div>
         </div>
       </Modal>
-    
-      
     </div>
   );
 }

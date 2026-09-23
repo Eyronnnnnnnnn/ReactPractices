@@ -13,6 +13,7 @@ import Calculator from './calculator.jsx'
 import FunctionalUpdate from './functionalUpdate.jsx'
 import LiftingState from './liftingState.jsx'
 import ShopList from './shoplist.jsx'
+import UseEfect from './useEffect.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,7 +28,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Calculator/> */}
     {/* <FunctionalUpdate /> */}
     {/* <LiftingState/> */}
-    <ShopList />
+    {/* <ShopList /> */}
+    <UseEfect />
 
   </StrictMode>
 )
