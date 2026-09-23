@@ -41,6 +41,8 @@ export default function Shoplist() {
   
   const [newid ,setnewId] = useState(5);
 
+
+
   const imageSrc =
     "https://logos-world.net/wp-content/uploads/2023/01/Shopee-Logo-2015.png";
 
@@ -82,6 +84,11 @@ export default function Shoplist() {
       status: false,
     },
   ]);
+
+      const total = shopItem.reduce(
+      (acc, curr)=>  acc + curr.price * curr.quantity,
+      0
+    )
 
   const handleDelete = (id) => {
     setShopItem(shopItem.filter((item) => item.id !== id));
@@ -163,6 +170,7 @@ export default function Shoplist() {
               <h2 className="text-2xl font-bold text-gray-700">
                 🛒 Shop Items
               </h2>
+              <h1>TOTAL ALL ITEM : $ {total} </h1>
               <button
                 onClick={() => setIsOpen(true)}
                 className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition font-semibold"
@@ -207,7 +215,8 @@ export default function Shoplist() {
                         <div className=" flex items-center justify-between p-3 rounded-md shadow-sm">
                           {/* Price */}
                           <div className="w-1/3 text-center font-semibold text-gray-900">
-                            ${Number(item.price) * item.quantity}
+                          
+                           ${item.price * item.quantity} 
                           </div>
 
                           {/* Quantity */}
