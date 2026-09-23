@@ -38,7 +38,8 @@ function Deletebtn(props) {
 export default function Shoplist() {
   const [isOpen, setIsOpen] = useState(false);
   const [deletebtn, setDeleteBtn] = useState(false);
-  const newid = 5;
+  
+  const [newid ,setnewId] = useState(5);
 
   const imageSrc =
     "https://logos-world.net/wp-content/uploads/2023/01/Shopee-Logo-2015.png";
@@ -137,9 +138,12 @@ export default function Shoplist() {
 
   ];
 
-   const addnewitemprod = ()=>{
+   const addnewitemprod = (id)=>{
     setShopItem([...shopItem , ...newShopitems]);
-    newid++
+     setnewId(newid + 1)
+    setnewprodName("")
+    setnewprodDescrip("")
+    newnewprodPrice("");
    }
 
   return (
@@ -267,7 +271,8 @@ export default function Shoplist() {
           </div>
         </div>
       </div>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className=" w-full h-16 flex items-center px-4 flex flex-col justify-center ">
           <div>
             <h1 className="text-orange-700 text-lg font-bold text">
@@ -306,6 +311,7 @@ export default function Shoplist() {
           <div className="flex items-center gap-4">
             <label className="w-40 text-gray-700 font-medium">Price:</label>
             <input
+            
             value={newprodPrice}
             onChange={(event)=> newnewprodPrice(event.target.value)}
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -316,6 +322,7 @@ export default function Shoplist() {
           {/* Submit Button */}
           <div className="flex justify-center">
             <button
+           
             onClick={addnewitemprod}
             className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md transition">
               Add Item
@@ -323,6 +330,8 @@ export default function Shoplist() {
           </div>
         </div>
       </Modal>
+    
+      
     </div>
   );
 }
