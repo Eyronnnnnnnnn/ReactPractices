@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import {useState } from "react";
 
 // CHILD COMPONENT FOR MODAL
 function Modal({ isOpen, onClose, children }) {
@@ -38,6 +38,7 @@ function Deletebtn(props) {
 export default function Shoplist() {
   const [isOpen, setIsOpen] = useState(false);
   const [deletebtn, setDeleteBtn] = useState(false);
+  const newid = 5;
 
   const imageSrc =
     "https://logos-world.net/wp-content/uploads/2023/01/Shopee-Logo-2015.png";
@@ -115,6 +116,31 @@ export default function Shoplist() {
       ),
     );
   };
+
+  
+
+   const [newprodName , setnewprodName] = useState("");
+   const [newprodDescrip , setnewprodDescrip] = useState("");
+   const [newprodPrice , newnewprodPrice] = useState("");
+
+
+  const newShopitems = [
+   {
+      id: newid,
+      quantity: 1,
+      img: "",
+      Product: newprodName,
+      Description: newprodDescrip ,
+      price: newprodPrice,
+      status: false,
+   }
+
+  ];
+
+   const addnewitemprod = ()=>{
+    setShopItem([...shopItem , ...newShopitems]);
+    newid++
+   }
 
   return (
     <div className="bg-orange-600 w-screen h-screen flex flex-col">
@@ -256,6 +282,8 @@ export default function Shoplist() {
               Product Name:
             </label>
             <input
+            value={newprodName}
+            onChange={(event) => setnewprodName(event.target.value) }
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               type="text"
             />
@@ -267,6 +295,8 @@ export default function Shoplist() {
               Description:
             </label>
             <input
+            value={newprodDescrip}
+            onChange={(event)=> setnewprodDescrip(event.target.value)}
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               type="text"
             />
@@ -276,6 +306,8 @@ export default function Shoplist() {
           <div className="flex items-center gap-4">
             <label className="w-40 text-gray-700 font-medium">Price:</label>
             <input
+            value={newprodPrice}
+            onChange={(event)=> newnewprodPrice(event.target.value)}
               className="flex-1 h-10 px-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               type="text"
             />
@@ -283,7 +315,9 @@ export default function Shoplist() {
 
           {/* Submit Button */}
           <div className="flex justify-center">
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md transition">
+            <button
+            onClick={addnewitemprod}
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md transition">
               Add Item
             </button>
           </div>
