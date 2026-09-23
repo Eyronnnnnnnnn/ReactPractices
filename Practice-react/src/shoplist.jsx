@@ -45,7 +45,7 @@ export default function Shoplist() {
   const [shopItem, setShopItem] = useState([
     {
       id: 1,
-      quantity : 1,
+      quantity: 1,
       img: "https://i5.walmartimages.com/seo/Great-Value-Hydrate-Alkaline-Water-33-8-fl-oz-Bottle_905d23b6-4ec1-4f54-8b2d-6af4dee76c00.16590c5fe05b21f5de337e6c1fd08c25.jpeg",
       Product: " AlkalineWater",
       Description: "This water is so good and afordable ",
@@ -54,7 +54,7 @@ export default function Shoplist() {
     },
     {
       id: 2,
-      quantity : 1,
+      quantity: 1,
       img: "https://hamrobazaar.blr1.cdn.digitaloceanspaces.com/User/Posts/2026/09/16/e2196e05-5ded-4db4-c115-efd39930450e.png",
       Product: " Iphone 18 Pro Max 100TB",
       Description: "Apple Products ",
@@ -63,7 +63,7 @@ export default function Shoplist() {
     },
     {
       id: 3,
-      quantity : 1,
+      quantity: 1,
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
       Description: "Affordable Speaker",
@@ -72,7 +72,7 @@ export default function Shoplist() {
     },
     {
       id: 4,
-       quantity : 1,
+      quantity: 1,
       img: "https://tse3.mm.bing.net/th/id/OIP.Ui5MMLH8ENXFqZsdwXcKHAAAAA?r=0&w=272&h=561&rs=1&pid=ImgDetMain&o=7&rm=3",
       Product: "JBL SPEAKER ",
       Description: "Affordable Speaker",
@@ -84,30 +84,28 @@ export default function Shoplist() {
   const handleDelete = (id) => {
     setShopItem(shopItem.filter((item) => item.id !== id));
   };
-  
-  const handleProductIncrement = (id)=>{
-    setShopItem(shopItem.map((item)=>{
-      const convertedPrice = Number(item.price);
-      return  item.id === id
-     ? {...item , quantity : item.quantity + 1 } 
-    : item
-    }
-    
-    ))
-   
-  }
 
-  const handleProductDecrement = (id)=>{
+  const handleProductIncrement = (id) => {
     setShopItem(
-      shopItem.map((item)=>{
-        if(item.id === id && item.quantity > 1){
-          return{
-            ...item,quantity: item.quantity - 1
+      shopItem.map((item) => {
+        const convertedPrice = Number(item.price);
+        return item.id === id ? { ...item, quantity: item.quantity + 1 } : item;
+      }),
+    );
+  };
+
+  const handleProductDecrement = (id) => {
+    setShopItem(
+      shopItem.map((item) => {
+        if (item.id === id && item.quantity > 1) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
           };
         }
         return item;
-      })
-    )
+      }),
+    );
   };
 
   const toggle = (id) => {
@@ -174,7 +172,7 @@ export default function Shoplist() {
                       <td className="border border-gray-300 px-4 py-2 text-gray-600">
                         {item.Description}
                       </td>
-                      
+
                       <td className="border border-gray-300   text-gray-800 ">
                         <div className=" flex items-center justify-between p-3 rounded-md shadow-sm">
                           {/* Price */}
@@ -185,7 +183,7 @@ export default function Shoplist() {
                           {/* Quantity */}
                           <div className="w-1/3 text-center">
                             <span className=" text-xs text-gray-600">
-                              Quantity 
+                              Quantity
                             </span>
                             <span className="text-sm font-bold">
                               {item.quantity}
@@ -195,14 +193,18 @@ export default function Shoplist() {
                           {/* Controls */}
                           <div className="w-1/3 flex items-center justify-center gap-2">
                             <button
-                            onClick={()=> handleProductIncrement(item.id)}
-                            className="w-8 h-8 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition">
+                              onClick={() => handleProductIncrement(item.id)}
+                              className="w-8 h-8 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+                            >
                               +
                             </button>
-                            <div><h1>{item.quantity }</h1></div>
-                            <button 
-                            onClick={()=> handleProductDecrement(item.id)}
-                            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 transition">
+                            <div>
+                              <h1>{item.quantity}</h1>
+                            </div>
+                            <button
+                              onClick={() => handleProductDecrement(item.id)}
+                              className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+                            >
                               −
                             </button>
                           </div>
