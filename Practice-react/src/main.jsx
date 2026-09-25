@@ -15,6 +15,7 @@ import LiftingState from './liftingState.jsx'
 import ShopList from './shoplist.jsx'
 import UseEfect from './useEffect.jsx'
 import UseEffectFetchingonMount from './useEffectFetchingonMount.jsx'
+import UseRef from './useRef.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -31,7 +32,8 @@ createRoot(document.getElementById('root')).render(
     {/* <LiftingState/> */}
     {/* <ShopList /> */}
     {/* <UseEfect /> */}
-    <UseEffectFetchingonMount /> 
+    {/* <UseEffectFetchingonMount />  */}
+    <UseRef />
 
   </StrictMode>
 )
