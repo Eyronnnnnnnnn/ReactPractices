@@ -16,6 +16,8 @@ import ShopList from './shoplist.jsx'
 import UseEfect from './useEffect.jsx'
 import UseEffectFetchingonMount from './useEffectFetchingonMount.jsx'
 import UseRef from './useRef.jsx'
+import InteractiveQuiz from './interactiveQuiz.jsx'
+import Propsdestructuring from './propsDestructuring.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -33,7 +35,9 @@ createRoot(document.getElementById('root')).render(
     {/* <ShopList /> */}
     {/* <UseEfect /> */}
     {/* <UseEffectFetchingonMount />  */}
-    <UseRef />
+    {/* <UseRef /> */}
+    {/* <InteractiveQuiz/> */}
+    <Propsdestructuring/>
 
   </StrictMode>
 )
