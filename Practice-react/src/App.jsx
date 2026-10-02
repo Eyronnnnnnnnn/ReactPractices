@@ -96,7 +96,7 @@ function App(props) {
 
     setTodos([...todos, newtodoobject]);
     setNewTodo("");
-    setnextId(nextid + 1);
+    setnextId(nextid + 1);  
   }
 
   function deletedTodo(id) {
