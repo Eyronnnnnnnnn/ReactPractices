@@ -18,6 +18,7 @@ import UseEffectFetchingonMount from './useEffectFetchingonMount.jsx'
 import UseRef from './useRef.jsx'
 import InteractiveQuiz from './interactiveQuiz.jsx'
 import Propsdestructuring from './propsDestructuring.jsx'
+import UseMemo from './useMemo.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -37,7 +38,8 @@ createRoot(document.getElementById('root')).render(
     {/* <UseEffectFetchingonMount />  */}
     {/* <UseRef /> */}
     {/* <InteractiveQuiz/> */}
-    <Propsdestructuring/>
+    {/* <Propsdestructuring/> */}
+    <UseMemo/>
 
   </StrictMode>
 )
