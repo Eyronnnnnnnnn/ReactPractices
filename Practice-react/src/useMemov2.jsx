@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useMemo } from "react";
 
 export default function UseMemov2() {
   const [number, setNumber] = useState(0);
@@ -8,14 +8,18 @@ export default function UseMemov2() {
     setDarkmode(!darkmode ? true : false)
   }
 
-const slowComputation = ()=>{
-    let  result = num ;
+
+  const slowComputation = useMemo(()=>{
+ let  result = number ;
     for(let i = 0 ; i < 5000000 ; i++){
      
         result = result ;
     }
-    return num * 2;
-}
+    console.log("rendering")
+    return number * 2;
+  },[number])
+
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 gap-6 p-6">
@@ -45,16 +49,19 @@ const slowComputation = ()=>{
 
         {darkmode ? (
           <div className="bg-black w-40 h-20 flex items-center justify-center text-white rounded-md">
-          dsa
+          Dark Mode
         </div>
         ) : (
               <div className="w-40 h-20 flex items-center justify-center rounded-md bg-white text-black">
-    dsa
+    Light Mode
   </div>
         )}
       
         <div className="">
-          <h1>{number}</h1>
+          <h1>{number}
+
+            {slowComputation}
+          </h1>
         </div>
       </div>
     </div>

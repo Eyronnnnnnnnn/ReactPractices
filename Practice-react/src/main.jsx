@@ -19,6 +19,8 @@ import UseRef from './useRef.jsx'
 import InteractiveQuiz from './interactiveQuiz.jsx'
 import Propsdestructuring from './propsDestructuring.jsx'
 import UseMemo from './useMemo.jsx'
+import UseMemov2 from './useMemov2.jsx'
+import UseMemov3 from './useMemov3.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -39,7 +41,10 @@ createRoot(document.getElementById('root')).render(
     {/* <UseRef /> */}
     {/* <InteractiveQuiz/> */}
     {/* <Propsdestructuring/> */}
-    <UseMemo/>
+
+    {/* <UseMemo/> */}
+    {/* <UseMemov2/> */}
+    <UseMemov3/>
 
   </StrictMode>
 )
