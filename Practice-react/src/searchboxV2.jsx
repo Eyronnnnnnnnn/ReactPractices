@@ -30,7 +30,10 @@ export default function Searchboxv2(){
                 type="text" />
                </div>
             </div>
-            <div className="w-full flex flex-col justify-center items-center">
+            {searchedList ? (
+         <div>not found</div>
+            ) : (
+               <div className="w-full flex flex-col justify-center items-center">
                 {searchedList.map((li)=>(
               <div 
               key={li.id}
@@ -39,6 +42,8 @@ export default function Searchboxv2(){
              </div>
             ))}
             </div>
+            )}
+           
             
             
             </div>
