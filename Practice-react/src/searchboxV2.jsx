@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useState,useMemo } from "react"
 export default function Searchboxv2(){
     const [movie,setMovie] = useState([
         { id : 1, MovieTitle : "SpiderMan " ,Prize : 300},
@@ -9,7 +9,13 @@ export default function Searchboxv2(){
 
     const [search ,setSearch] = useState("");
 
-    const searchedList = list.filter((li)=> li.id === li.MovieTitle.includes(search))
+  
+
+    const searchedList = useMemo(()=>{
+     return movie.filter((li)=>
+         li.MovieTitle.toLowerCase().includes(search.toLowerCase())
+    );
+    },[search,movie]);
 
     return(
         <div className="bg-red-600 w-screen h-screen flex  flex-col justify-center items-center">
@@ -17,6 +23,8 @@ export default function Searchboxv2(){
             <div className="   h-36 flex justify-center items-center" >
                <div className="  bg-black">
                 <input 
+                value={search}
+                onChange={(e)=>setSearch(e.target.value)}
                 placeholder="Search Movie"
                 className="w-72 pl-3"
                 type="text" />

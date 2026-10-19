@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useCallback } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 // import App from './App.jsx'
@@ -21,6 +21,9 @@ import Propsdestructuring from './propsDestructuring.jsx'
 import UseMemo from './useMemo.jsx'
 import UseMemov2 from './useMemov2.jsx'
 import UseMemov3 from './useMemov3.jsx'
+import UseCallBack from './UseCallBack.jsx'
+import SearchBox from './searchBox.jsx'
+import Searchboxv2 from './searchboxV2.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -44,7 +47,9 @@ createRoot(document.getElementById('root')).render(
 
     {/* <UseMemo/> */}
     {/* <UseMemov2/> */}
-    <UseMemov3/>
+    {/* <UseCallBack/> */}
+    {/* <SearchBox /> */}
+    <Searchboxv2/>
 
   </StrictMode>
 )
