@@ -49,7 +49,8 @@ createRoot(document.getElementById('root')).render(
     {/* <UseMemov2/> */}
     {/* <UseCallBack/> */}
     {/* <SearchBox /> */}
-    <Searchboxv2/>
+    {/* <Searchboxv2/> */}
+    <UseCallBack/>
 
   </StrictMode>
 )

@@ -1,3 +1,16 @@
+
+
+function ChildComponent(){
+    return (
+        <div>
+            
+        </div>
+    )
+}
+
+
+
+// parent component
 export default function UseCallBack(){
     return(
         <div>
