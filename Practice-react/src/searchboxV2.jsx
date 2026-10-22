@@ -34,7 +34,7 @@ export default function Searchboxv2(){
         <div className="w-full flex flex-col justify-center items-center">
                 {searchedList.map((li)=>(
               <div 
-              key={li.idd}
+              key={li.id}
               className="h-11">
                 {li.MovieTitle}
              </div>
