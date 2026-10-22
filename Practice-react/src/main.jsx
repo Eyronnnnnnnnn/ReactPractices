@@ -25,6 +25,7 @@ import UseCallBack from './UseCallBack.jsx'
 import SearchBox from './searchBox.jsx'
 import Searchboxv2 from './searchboxV2.jsx'
 import UseCallBackPractice from './UseCallBackPractice.jsx'
+import SearchBoxv3 from './searchBoxv3.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -52,7 +53,8 @@ createRoot(document.getElementById('root')).render(
     {/* <SearchBox /> */}
     {/* <Searchboxv2/> */}
     {/* <UseCallBack/> */}
-   <UseCallBackPractice/>
+   {/* <UseCallBackPractice/> */}
+   <SearchBoxv3 />
   </StrictMode>
 )
 
