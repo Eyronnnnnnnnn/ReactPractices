@@ -6,6 +6,9 @@ const ChildConponent =  memo(function ChildConponent({HandleClick}){
     return (
         <div>
            <h1>rendered</h1>
+           <button
+           onClick={()=>HandleClick()}
+           >Click</button>
         </div>
     )
 })
@@ -17,8 +20,8 @@ export default function UseCallBack(){
     const [count ,setCount ] = useState(0);
 
     const HandleClick = useCallback(function HandleClick(){
-        console.log("hi")
-    },[])
+        console.log(count)
+    },[count])
     
     return(
         <div>

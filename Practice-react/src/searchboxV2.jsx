@@ -3,8 +3,8 @@ import { useState,useMemo } from "react"
 export default function Searchboxv2(){
     const [movie,setMovie] = useState([
         { id : 1, MovieTitle : "SpiderMan " ,Prize : 300},
-         { id : 2, MovieTitle : "Avengers " ,Prize : 400},
-          { id : 3, MovieTitle : "SpiderMan " ,Prize : 600}
+        { id : 2, MovieTitle : "Avengers " ,Prize : 400},
+        { id : 3, MovieTitle : "SpiderMan " ,Prize : 600}
     ]);
 
     const [search ,setSearch] = useState("");
@@ -34,7 +34,7 @@ export default function Searchboxv2(){
         <div className="w-full flex flex-col justify-center items-center">
                 {searchedList.map((li)=>(
               <div 
-              key={li.id}
+              key={li.idd}
               className="h-11">
                 {li.MovieTitle}
              </div>

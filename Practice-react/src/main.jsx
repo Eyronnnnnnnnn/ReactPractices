@@ -24,6 +24,7 @@ import UseMemov3 from './useMemov3.jsx'
 import UseCallBack from './UseCallBack.jsx'
 import SearchBox from './searchBox.jsx'
 import Searchboxv2 from './searchboxV2.jsx'
+import UseCallBackPractice from './UseCallBackPractice.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -50,8 +51,8 @@ createRoot(document.getElementById('root')).render(
     {/* <UseCallBack/> */}
     {/* <SearchBox /> */}
     {/* <Searchboxv2/> */}
-    <UseCallBack/>
-
+    {/* <UseCallBack/> */}
+   <UseCallBackPractice/>
   </StrictMode>
 )
 
