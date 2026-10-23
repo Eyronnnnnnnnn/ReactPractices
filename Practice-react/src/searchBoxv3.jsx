@@ -1,4 +1,57 @@
+import react, { memo } from "react";
 import { useMemo, useState } from "react";
+
+const MovieCard = memo(function MovieCard({ filteredMovies, movie }) {
+     return(
+ <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6">
+        {filteredMovies.map((movie) => (
+          <a
+            key={movie.title}
+            href={movie.link}
+            target="_blank"
+            rel="noreferrer"
+            className="group block"
+          >
+            {/* Poster */}
+            <div className="relative aspect-[2/3] overflow-hidden rounded-xl bg-zinc-900">
+              <img
+                src={movie.poster}
+                alt={`${movie.title} movie poster`}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-70"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+
+              <div className="absolute left-3 top-3 rounded-md border border-white/10 bg-black/60 px-2 py-1 text-xs font-semibold text-yellow-400 backdrop-blur-sm">
+                ★ {movie.rating}
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 translate-y-2 p-3 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="inline-flex items-center gap-1 rounded-lg bg-red-600 px-3 py-2 text-xs font-semibold">
+                  View movie
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Movie details */}
+            <div className="mt-3">
+              <h3 className="truncate font-semibold text-zinc-100 transition group-hover:text-red-400">
+                {movie.title}
+              </h3>
+
+              <p className="mt-1 text-xs text-zinc-500">
+                {movie.year} · {movie.genre}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+     )
+       
+  }
+);
 
 export default function SearchBoxv3() {
   const [movies, setMovie] = useState([
@@ -53,10 +106,6 @@ export default function SearchBoxv3() {
   ]);
 
   const [input, setInput] = useState("");
-
-  const titlesize = ()=>{
-    movies.filter((mov)=> mov.title.length)
-  }
 
   const filteredMovies = useMemo(
     () =>
@@ -157,66 +206,25 @@ export default function SearchBoxv3() {
               Popular Movies
             </h2>
           </div>
-          {movies.map((mov)=>(
-         <span key={mov.id} className="text-sm text-zinc-500">06 titles</span>
-          ))}
-          
+
+          <span className="text-sm text-zinc-500">
+            {filteredMovies.length} titles
+          </span>
         </div>
-
-        {filteredMovies.length === 0 ? (
-          <div className="w-100 h-60 text-xl flex justify-center items-center">
-            <div>
-              <h1>No Movies Found</h1>
-            </div>
-
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6">
-            {filteredMovies.map((movie) => (
-              <a
-                key={movie.title}
-                href={movie.link}
-                target="_blank"
-                rel="noreferrer"
-                className="group block"
-              >
-                {/* Poster */}
-                <div className="relative aspect-[2/3] overflow-hidden rounded-xl bg-zinc-900">
-                  <img
-                    src={movie.poster}
-                    alt={`${movie.title} movie poster`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-70"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-
-                  <div className="absolute left-3 top-3 rounded-md border border-white/10 bg-black/60 px-2 py-1 text-xs font-semibold text-yellow-400 backdrop-blur-sm">
-                    ★ {movie.rating}
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 translate-y-2 p-3 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <span className="inline-flex items-center gap-1 rounded-lg bg-red-600 px-3 py-2 text-xs font-semibold">
-                      View movie
-                      <span aria-hidden="true">↗</span>
-                    </span>
-                  </div>
-                </div>
-
-                {/* Movie details */}
-                <div className="mt-3">
-                  <h3 className="truncate font-semibold text-zinc-100 transition group-hover:text-red-400">
-                    {movie.title}
-                  </h3>
-
-                  <p className="mt-1 text-xs text-zinc-500">
-                    {movie.year} · {movie.genre}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
+       {filteredMovies.length === 0 ? (
+         <div className="w-100 h-60 text-xl flex justify-center items-center">
+    <div>
+      <h1>No Movies Found</h1>
+    </div>
+  </div>
+       ): (
+ <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6">
+    {filteredMovies.map((movie) => (
+      <MovieCard key={movie.title} movie={movie} />
+    ))}
+  </div>
+       )}
+       
       </section>
 
       {/* Footer */}
