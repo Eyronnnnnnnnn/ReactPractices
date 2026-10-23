@@ -10,4 +10,4 @@ const name = useContext(NameContext);
             <p>my name is {name}</p>
         </div>
     )
-}
+}   
