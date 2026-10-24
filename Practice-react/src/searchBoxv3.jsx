@@ -1,5 +1,8 @@
 import { memo, useMemo, useState } from "react";
 
+
+
+
 const PopUpModal = memo(function PopUpModal({modal}){
   if(!modal ){return}
 
@@ -9,7 +12,7 @@ const PopUpModal = memo(function PopUpModal({modal}){
     </div>
   )
 })
-const MovieCard = memo(function MovieCard({ movie }) {
+const MovieCard = memo(function MovieCard({ movie,deleteBtn }) {
   return (
     <a
       href={movie.link}
@@ -34,8 +37,11 @@ const MovieCard = memo(function MovieCard({ movie }) {
 
         <div className="absolute inset-x-0 bottom-0 translate-y-2 p-3 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           <span className="inline-flex items-center gap-1 rounded-lg bg-red-600 px-3 py-2 text-xs font-semibold">
-            View movie
-            <span aria-hidden="true">↗</span>
+             <button
+             key={movie.title}
+             onClick={()=>deleteBtn(movie.title)}
+             >delete Movie</button>
+            <span aria-hidden="true">x</span>
           </span>
         </div>
       </div>
@@ -62,7 +68,7 @@ export default function SearchBoxv3() {
     genre: "Sci-Fi · Adventure",
     rating: "8.7",
     poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-    link: "https://www.themoviedb.org/movie/157336",
+   
   },
   {
     title: "Inception",
@@ -70,7 +76,7 @@ export default function SearchBoxv3() {
     genre: "Sci-Fi · Thriller",
     rating: "8.8",
     poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
-    link: "https://www.themoviedb.org/movie/27205",
+  
   },
   {
     title: "The Batman",
@@ -78,7 +84,7 @@ export default function SearchBoxv3() {
     genre: "Action · Crime",
     rating: "7.8",
     poster: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-    link: "https://www.themoviedb.org/movie/414906",
+  
   },
   {
     title: "Dune: Part Two",
@@ -86,176 +92,9 @@ export default function SearchBoxv3() {
     genre: "Sci-Fi · Drama",
     rating: "8.5",
     poster: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-    link: "https://www.themoviedb.org/movie/693134",
+  
   },
-  {
-    title: "Spider-Man: No Way Home",
-    year: 2021,
-    genre: "Action · Adventure",
-    rating: "8.0",
-    poster: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
-    link: "https://www.themoviedb.org/movie/634649",
-  },
-  {
-    title: "Joker",
-    year: 2019,
-    genre: "Crime · Drama",
-    rating: "8.2",
-    poster: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
-    link: "https://www.themoviedb.org/movie/475557",
-  },
-  {
-    title: "Spider-Man: Brand New Day",
-    year: 2026,
-    genre: "Action · Sci-Fi · Adventure",
-    rating: "N/A",
-    poster: "https://media.themoviedb.org/t/p/w600_and_h900_face/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
-    link: "https://www.themoviedb.org/movie/969681",
-  },
-  {
-    title: "Avengers: Endgame",
-    year: 2019,
-    genre: "Action · Adventure",
-    rating: "8.4",
-    poster: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-    link: "https://www.themoviedb.org/movie/299534",
-  },
-  {
-    title: "Avengers: Infinity War",
-    year: 2018,
-    genre: "Action · Sci-Fi",
-    rating: "8.4",
-    poster: "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
-    link: "https://www.themoviedb.org/movie/299536",
-  },
-  {
-    title: "Iron Man",
-    year: 2008,
-    genre: "Action · Sci-Fi",
-    rating: "7.9",
-    poster: "https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
-    link: "https://www.themoviedb.org/movie/1726",
-  },
-  {
-    title: "Captain America: Civil War",
-    year: 2016,
-    genre: "Action · Adventure",
-    rating: "7.8",
-    poster: "https://image.tmdb.org/t/p/w500/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg",
-    link: "https://www.themoviedb.org/movie/271110",
-  },
-  {
-    title: "Black Panther",
-    year: 2018,
-    genre: "Action · Adventure",
-    rating: "7.3",
-    poster: "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
-    link: "https://www.themoviedb.org/movie/284054",
-  },
-  {
-    title: "Doctor Strange",
-    year: 2016,
-    genre: "Action · Fantasy",
-    rating: "7.5",
-    poster: "https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg",
-    link: "https://www.themoviedb.org/movie/284052",
-  },
-  {
-    title: "Guardians of the Galaxy",
-    year: 2014,
-    genre: "Action · Comedy",
-    rating: "8.0",
-    poster: "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
-    link: "https://www.themoviedb.org/movie/118340",
-  },
-  {
-    title: "Thor: Ragnarok",
-    year: 2017,
-    genre: "Action · Comedy",
-    rating: "7.9",
-    poster: "https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
-    link: "https://www.themoviedb.org/movie/284053",
-  },
-  {
-    title: "Spider-Man: Homecoming",
-    year: 2017,
-    genre: "Action · Adventure",
-    rating: "7.4",
-    poster: "https://image.tmdb.org/t/p/w500/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
-    link: "https://www.themoviedb.org/movie/315635",
-  },
-  {
-    title: "Spider-Man: Far From Home",
-    year: 2019,
-    genre: "Action · Adventure",
-    rating: "7.4",
-    poster: "https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg",
-    link: "https://www.themoviedb.org/movie/429617",
-  },
-  {
-    title: "Spider-Man: Into the Spider-Verse",
-    year: 2018,
-    genre: "Animation · Action",
-    rating: "8.4",
-    poster: "https://image.tmdb.org/t/p/w500/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
-    link: "https://www.themoviedb.org/movie/324857",
-  },
-  {
-    title: "Spider-Man: Across the Spider-Verse",
-    year: 2023,
-    genre: "Animation · Adventure",
-    rating: "8.6",
-    poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-    link: "https://www.themoviedb.org/movie/569094",
-  },
-  {
-    title: "The Dark Knight",
-    year: 2008,
-    genre: "Action · Crime",
-    rating: "9.0",
-    poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-    link: "https://www.themoviedb.org/movie/155",
-  },
-  {
-    title: "The Dark Knight Rises",
-    year: 2012,
-    genre: "Action · Thriller",
-    rating: "8.4",
-    poster: "https://image.tmdb.org/t/p/w500/hr0L2aueqlP2BYUblTTjmtn0hw4.jpg",
-    link: "https://www.themoviedb.org/movie/49026",
-  },
-  {
-    title: "Man of Steel",
-    year: 2013,
-    genre: "Action · Sci-Fi",
-    rating: "7.1",
-    poster: "https://image.tmdb.org/t/p/w500/dksTL9NXc3GqPBRHYHcy1aIwjS.jpg",
-    link: "https://www.themoviedb.org/movie/49521",
-  },
-  {
-    title: "Wonder Woman",
-    year: 2017,
-    genre: "Action · Fantasy",
-    rating: "7.4",
-    poster: "https://image.tmdb.org/t/p/w500/v4ncgZjG2Zu8ZW5al1vIZTsSjqX.jpg",
-    link: "https://www.themoviedb.org/movie/297762",
-  },
-  {
-    title: "Aquaman",
-    year: 2018,
-    genre: "Action · Adventure",
-    rating: "6.8",
-    poster: "https://image.tmdb.org/t/p/w500/xLPffWMhMj1l50ND3KchMjYoKmE.jpg",
-    link: "https://www.themoviedb.org/movie/297802",
-  },
-  {
-    title: "Zack Snyder's Justice League",
-    year: 2021,
-    genre: "Action · Fantasy",
-    rating: "8.0",
-    poster: "https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg",
-    link: "https://www.themoviedb.org/movie/791373",
-  },
+
   ]);
 
   const [input, setInput] = useState("");
@@ -268,6 +107,10 @@ export default function SearchBoxv3() {
       ),
     [input, movies],
   );
+
+  const deleteBtn = (title)=>{
+   return setMovie(movies.filter((mov)=> mov.title !== title ))
+  }
 
   return (
     <div className="min-h-screen bg-[#09090b] text-white">
@@ -297,7 +140,7 @@ export default function SearchBoxv3() {
         </a>
       </nav>
 
-      {/* Hero section */}
+    
       <header className="px-6 pb-12 pt-16 text-center md:pb-16 md:pt-24">
         <span>Developed by : Aaron D Guillermo</span>
         <h1 className="mx-auto mt-6 max-w-3xl text-4xl font-black leading-tight tracking-tight sm:text-6xl">
@@ -311,7 +154,7 @@ export default function SearchBoxv3() {
           watching tonight.
         </p>
 
-        {/* Search bar */}
+        
         <div
           id="search"
           className="mx-auto mt-9 flex max-w-2xl items-center gap-3 rounded-2xl border border-white/10 bg-[#141416] p-2 shadow-2xl shadow-black/30 transition focus-within:border-red-500/50"
@@ -353,7 +196,7 @@ export default function SearchBoxv3() {
         </div>
       </div>
 
-      {/* Movie collection */}
+     
       <section id="movies" className="mx-auto max-w-7xl px-6 pb-20 md:px-12">
         <div className="mb-7 flex items-end justify-between">
           <div>
@@ -379,7 +222,7 @@ export default function SearchBoxv3() {
         ) : (
           <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6">
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.title} movie={movie} modal = {modal} />
+              <MovieCard key={movie.title} movie={movie} modal = {modal} deleteBtn={deleteBtn} />
             ))}
           </div>
         )}
