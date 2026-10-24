@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 
 
 
@@ -108,9 +108,9 @@ export default function SearchBoxv3() {
     [input, movies],
   );
 
-  const deleteBtn = (title)=>{
+  const deleteBtn =  useCallback((title)=>{
    return setMovie(movies.filter((mov)=> mov.title !== title ))
-  }
+  })
 
   return (
     <div className="min-h-screen bg-[#09090b] text-white">
