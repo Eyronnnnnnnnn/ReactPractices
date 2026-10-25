@@ -12,7 +12,11 @@ const PopUpModal = memo(function PopUpModal({modal}){
     </div>
   )
 })
+
 const MovieCard = memo(function MovieCard({ movie,deleteBtn }) {
+
+  console.log("card rendered " , movie.tite)
+
   return (
     <a
       href={movie.link}
@@ -109,8 +113,8 @@ export default function SearchBoxv3() {
   );
 
   const deleteBtn =  useCallback((title)=>{
-   return setMovie(movies.filter((mov)=> mov.title !== title ))
-  })
+   return setMovie( (prevmovies) => prevmovies.filter((mov)=> mov.title !== title ))
+  },[])
 
   return (
     <div className="min-h-screen bg-[#09090b] text-white">
