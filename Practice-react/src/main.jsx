@@ -26,6 +26,7 @@ import SearchBox from './searchBox.jsx'
 import Searchboxv2 from './searchboxV2.jsx'
 import UseCallBackPractice from './UseCallBackPractice.jsx'
 import SearchBoxv3 from './searchBoxv3.jsx'
+import PracforreactMemo from './pracforreactMemo.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -54,7 +55,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Searchboxv2/> */}
     {/* <UseCallBack/> */}
    {/* <UseCallBackPractice/> */}
-   <SearchBoxv3 />
+   {/* <SearchBoxv3 /> */}
+    <PracforreactMemo/>
   </StrictMode>
 )
 
