@@ -24,6 +24,9 @@
     }
 
     export default function UseFetch(){
+ 
+        useFetch("https://jsonplaceholder.typicode.com/posts")
+        
         return(
             <div>
                 <h1></h1>
