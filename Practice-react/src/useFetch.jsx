@@ -15,7 +15,7 @@
             setLoading(false)
             }catch(error){
                 setLoading(false)
-                setError(error)
+                setError(error.message)
             }
         }
         FetchUser();
@@ -23,22 +23,22 @@
         },[url])
 
 
-    return {data,loading}
+    return {data,loading,error}
         }
 
         export default function UseFetch(){
     
-        const {data,loading} =  useFetch("https://jsonplaceholder.typicode.com/posts")
+        const {data,loading,error} =  useFetch("https://jsonplaceholder.typicode.com/posts")
             
     
-        console.log(data);
+        console.log(error);
     
             return(
                 <div>
                     {!loading  ? (<h1>{data.map((d)=>(
                         <p key = {d.id}>{d.title}</p>
                     ))}</h1>) : (<h1>loading</h1>) }
-                    <h1></h1>
+                  
                 </div>
             )
         }
