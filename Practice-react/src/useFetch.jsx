@@ -10,9 +10,16 @@
         const FetchUser = async()=>{
             try{
             const response =  await fetch(url)
-            const result = await response.json();
+
+            if(response.ok){
+               const result = await response.json();
             setData(result)
             setLoading(false)
+            }else{
+                throw new Error("failed to fetch data")
+            }
+
+         
             }catch(error){
                 setLoading(false)
                 setError(error.message)

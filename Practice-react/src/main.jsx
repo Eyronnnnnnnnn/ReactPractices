@@ -29,6 +29,7 @@ import SearchBoxv3 from './searchBoxv3.jsx'
 import PracforreactMemo from './pracforreactMemo.jsx'
 import CustonHooks from './CustomHooks.jsx'
 import UseFetch from './useFetch.jsx'
+import UseFetchPrac from './useFetchPrac.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -60,7 +61,8 @@ createRoot(document.getElementById('root')).render(
    {/* <SearchBoxv3 /> */}
     {/* <PracforreactMemo/> */}
     {/* <CustonHooks/> */}
-    <UseFetch/>
+    {/* <UseFetch/> */}
+    <UseFetchPrac/>
   </StrictMode>
 )
 
