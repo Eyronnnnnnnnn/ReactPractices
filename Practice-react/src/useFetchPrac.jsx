@@ -10,6 +10,8 @@ const useFetch = (url)=> {
             try{
             const response = await fetch(url);
             const result = await response.json();
+            setData(result)
+            setLoading(false)
             console.log(result)
 
             }catch(error){
@@ -25,10 +27,13 @@ const useFetch = (url)=> {
 }
 
 export default function UseFetchPrac(){
-    const {data} = useFetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const {data,loading} = useFetch("https://pokeapi.co/api/v2/pokemon?limit=20");
     return(
         <div>
-
+          {!loading ? (<h1>{data.results.map((d)=>(
+            <p key ={d.name}>{d.name}</p>
+          ))}</h1>) : (<h1>loading...</h1>)}
+          
         </div>
     )
 }
