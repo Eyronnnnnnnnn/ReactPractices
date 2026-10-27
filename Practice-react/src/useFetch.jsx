@@ -1,35 +1,44 @@
-    import { useEffect, useState } from "react";
+        import { useEffect, useState } from "react";
 
-    function useFetch(url){
-    const [data,setData] = useState(null);
-    const [loading , setLoading] = useState(false);
+        function useFetch(url){
+        const [data,setData] = useState(null);
+        const [loading , setLoading] = useState(true);
+        const [error ,setError] = useState(null);
 
-    useEffect(()=>{
+        useEffect(()=>{
 
-    const FetchUser = async()=>{
-        try{
-         const response =  await fetch(url)
-         const result = await response.json();
-         console.log(result);
-        }catch(error){
-            console.log(error);
+        const FetchUser = async()=>{
+            try{
+            const response =  await fetch(url)
+            const result = await response.json();
+            setData(result)
+            setLoading(false)
+            }catch(error){
+                setLoading(false)
+                setError(error)
+            }
         }
-    }
-    FetchUser();
+        FetchUser();
 
-    },[url])
-
+        },[url])
 
 
-    }
+    return {data,loading}
+        }
 
-    export default function UseFetch(){
- 
-        useFetch("https://jsonplaceholder.typicode.com/posts")
-        
-        return(
-            <div>
-                <h1></h1>
-            </div>
-        )
-    }
+        export default function UseFetch(){
+    
+        const {data,loading} =  useFetch("https://jsonplaceholder.typicode.com/posts")
+            
+    
+        console.log(data);
+    
+            return(
+                <div>
+                    {!loading  ? (<h1>{data.map((d)=>(
+                        <p key = {d.id}>{d.title}</p>
+                    ))}</h1>) : (<h1>loading</h1>) }
+                    <h1></h1>
+                </div>
+            )
+        }
