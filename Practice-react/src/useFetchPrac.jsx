@@ -21,19 +21,19 @@ const useFetch = (url)=> {
         }
         FetchData()
     },[url])
-  
+
     return{data,loading}
 
 }
 
 export default function UseFetchPrac(){
-    const {data,loading} = useFetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const {data,loading} = useFetch("httpns://pokeapi.co/api/v2/pokemon?limit=20");
     return(
         <div>
-          {!loading ? (<h1>{data.results.map((d)=>(
-            <p key ={d.name}>{d.name}</p>
+          {!loading ? (<h1>{data.results.map((d,index)=>(
+            <p key ={d.name}># {index + 1} pokemon names : <span className="text-lg font-bold">{d.name}</span> </p>
           ))}</h1>) : (<h1>loading...</h1>)}
-          
+      
         </div>
     )
 }
