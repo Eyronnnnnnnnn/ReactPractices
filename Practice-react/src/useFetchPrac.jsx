@@ -23,6 +23,7 @@ const useFetch = (url)=> {
 
             }catch(error){
                 setError(true)
+                setLoading(false)
                 console.log(error);
             }
        
@@ -35,15 +36,32 @@ const useFetch = (url)=> {
 }
 
 export default function UseFetchPrac(){
-    const {data,loading,error} = useFetch("https://pokeapi.co/api/v2/pokemonn?limit=20");
+    const {data,loading,error} = useFetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const {data : data2, loading : loading1 ,error : error1} = useFetch("https://jsonplaceholder.typicode.com/posts");
     return(
         <div>
-          {!loading ? (<h1>{data.results.map((d,index)=>(
+          {loading ?(<h1>Loading...</h1>) 
+           : error ? ("error") : (<h1>{data.results.map((d,index)=>(
             <p key ={d.name}># {index + 1} pokemon names : <span className="text-lg font-bold">{d.name}</span> </p>
-          ))}</h1>) : (<h1>loading...</h1>)
+          ))}</h1>)
           
           }
-         {error === true ? (<h1>Error</h1>) : (<h1>responded</h1>)}
+
+          <div>
+            <h1>DATA 2 : </h1>
+            {loading1 ? (<h1>loading...</h1>) : error1 ? ("Error Fetching Data")
+            
+            : (<h1>{data2.map((d)=>(
+            <div key={d.id}>
+              <p key = {d.id}> User Number 1  </p> 
+              <p key={d.userId}>Posts : {d.title} </p>
+            </div>
+           
+               
+            
+            ))}</h1>)}
+          </div>
+       
         </div>
     )
 }
