@@ -53,8 +53,8 @@ export default function UseFetchPrac(){
             
             : (<h1>{data2.map((d)=>(
             <div key={d.id}>
-              <p key = {d.id}> User Number 1  </p> 
-              <p key={d.userId}>Posts : {d.title} </p>
+              <p > User Number 1  </p> 
+              <p >Posts : {d.title} </p>
             </div>
            
                
