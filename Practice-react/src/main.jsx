@@ -30,7 +30,7 @@ import PracforreactMemo from './pracforreactMemo.jsx'
 import CustonHooks from './CustomHooks.jsx'
 import UseFetch from './useFetch.jsx'
 import UseFetchPrac from './useFetchPrac.jsx'
-import 
+import UseDebounce from './useDebounce.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -63,7 +63,8 @@ createRoot(document.getElementById('root')).render(
     {/* <PracforreactMemo/> */}
     {/* <CustonHooks/> */}
     {/* <UseFetch/> */}
-    <UseFetchPrac/>
+    {/* <UseFetchPrac/> */}
+    <UseDebounce/>
   </StrictMode>
 )
 

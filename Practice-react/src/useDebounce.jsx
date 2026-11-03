@@ -1,3 +1,11 @@
+import { use, useEffect } from "react";
+
+const debounce = () => {
+  useEffect(()=>{
+
+  },[])
+}
+
 export default function useDebounce() {
   const movie = [
     { id: 1, title: "spiderman " },
@@ -8,15 +16,22 @@ export default function useDebounce() {
     { id: 6, title: "Harry potter " },
     { id: 7, title: "Barney" },
   ];
-
+  const [search ,setSearch] = useState("");
+  const searchedMovies = movie.filter((mov)=> mov.title.toLocaleLowerCase().includes(search.toLowerCase()))
+  
   return (
     <div>
-        {movie.map((movie)=>(
+        <input 
+        value={search}
+        onChange={(e)=>setSearch(e.target.value)}
+        className="border-2 border-solid border-gray-800"
+        type="text" placeholder="Search movie"/>
+        {searchedMovies.map((movie)=>(
             <div key ={movie.id}>
                 <h1>{movie.title}</h1>
                  </div>
         ))}
-      <input type="text" />
+      
     </div>
   );
 }
