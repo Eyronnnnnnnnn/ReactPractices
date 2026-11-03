@@ -1,8 +1,15 @@
-import { use, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const debounce = () => {
+const debounce = (search,delay) => {
+    const [debouncedValue,setDebounceValue] = useState(search)
   useEffect(()=>{
+ const timer = setTimeout(()=>{
+    setDebounceValue(search)
+ },delay)
 
+ return ()=>{
+    clearTimeout(timer)
+ }
   },[])
 }
 
