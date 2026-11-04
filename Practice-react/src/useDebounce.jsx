@@ -5,12 +5,12 @@ const debounce = (search,delay) => {
   useEffect(()=>{
  const timer = setTimeout(()=>{
     setDebounceValue(search)
- },delay)
+ },[delay])
 
  return ()=>{
     clearTimeout(timer)
  }
-  },[])
+  },[search])
 }
 
 export default function useDebounce() {
@@ -24,6 +24,7 @@ export default function useDebounce() {
     { id: 7, title: "Barney" },
   ];
   const [search ,setSearch] = useState("");
+  
   const searchedMovies = movie.filter((mov)=> mov.title.toLocaleLowerCase().includes(search.toLowerCase()))
   
   return (
