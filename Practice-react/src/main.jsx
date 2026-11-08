@@ -31,6 +31,7 @@ import CustonHooks from './CustomHooks.jsx'
 import UseFetch from './useFetch.jsx'
 import UseFetchPrac from './useFetchPrac.jsx'
 import UseDebounce from './useDebounce.jsx'
+import UseLocalStorage from './useLocalStorage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -64,7 +65,8 @@ createRoot(document.getElementById('root')).render(
     {/* <CustonHooks/> */}
     {/* <UseFetch/> */}
     {/* <UseFetchPrac/> */}
-    <UseDebounce/>
+    {/* <UseDebounce/> */}
+    < UseLocalStorage />
   </StrictMode>
 )
 
