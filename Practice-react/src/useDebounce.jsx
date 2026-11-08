@@ -5,12 +5,13 @@ const debounce = (search,delay) => {
   useEffect(()=>{
  const timer = setTimeout(()=>{
     setDebounceValue(search)
- },[delay])
+ },delay)
 
  return ()=>{
     clearTimeout(timer)
  }
   },[search])
+  return debouncedValue
 }
 
 export default function useDebounce() {
@@ -25,7 +26,8 @@ export default function useDebounce() {
   ];
   const [search ,setSearch] = useState("");
   
-  const searchedMovies = movie.filter((mov)=> mov.title.toLocaleLowerCase().includes(search.toLowerCase()))
+  const searchedDebounce = debounce(search,500)
+  const searchedMovies = movie.filter((mov)=> mov.title.toLocaleLowerCase().includes(searchedDebounce.toLowerCase()))
   
   return (
     <div>
