@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function uselocalstorage(key,initialvalue){
 
@@ -8,6 +8,9 @@ function uselocalstorage(key,initialvalue){
      return savedValue ? JSON.parse(savedValue) : initialvalue;
    
  })
+ useEffect(()=>{
+    localStorage.setItem(key, JSON.stringify(value))
+},[key,value])
 
    return [value,setValue]
 }
@@ -16,15 +19,21 @@ function uselocalstorage(key,initialvalue){
 
 export default function UseLocalStorage(){
    
-    const [count ,setCount] = useState(0);
+    const [count ,setCount] = uselocalstorage("count" , 0);
 
+    function clearLocalStorage(){
+        localStorage.clear()
+    }
 
     return(
         <div>
-            <h1>click : {count}</h1>
+            <h1> click : {count}</h1>
             <button
             onClick={()=> setCount(count + 1)}
             >PLUS 1</button>
+            <button
+            onClick={()=> clearLocalStorage()}
+            >Clear</button>
         </div>
     )
 }
