@@ -32,6 +32,7 @@ import UseFetch from './useFetch.jsx'
 import UseFetchPrac from './useFetchPrac.jsx'
 import UseDebounce from './useDebounce.jsx'
 import UseLocalStorage from './useLocalStorage.jsx'
+import UncontrolledForm from './UncontrolledForm.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -66,7 +67,8 @@ createRoot(document.getElementById('root')).render(
     {/* <UseFetch/> */}
     {/* <UseFetchPrac/> */}
     {/* <UseDebounce/> */}
-    < UseLocalStorage />
+    {/* < UseLocalStorage /> */}
+    <UncontrolledForm/>
   </StrictMode>
 )
 
