@@ -3,10 +3,10 @@ import { useRef } from "react";
 export default function UncontrolledForm(){
   
 
-    const nameRef = useRef
+    const nameRef = useRef()
 
     const HandleEvent =  (event)=>{
-       console.log(event);
+     console.log(nameRef.current.value)
     }
 
  return (
@@ -18,10 +18,12 @@ export default function UncontrolledForm(){
        <div>
         <label>Enter Name</label>
         <input
+        ref={nameRef}
         onChange={HandleEvent}
         className="border border-black"
         type="text"  placeholder="Enter Name"/>
        </div>
+       
     </div>
  )
 }
