@@ -19,9 +19,11 @@ export default function UncontrolledForm(){
         <label>Enter Name</label>
         <input
         ref={nameRef}
-        onChange={HandleEvent}
         className="border border-black"
         type="text"  placeholder="Enter Name"/>
+        <button
+        onClick={HandleEvent}
+        >Enter</button>
        </div>
        
     </div>
