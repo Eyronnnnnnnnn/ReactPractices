@@ -33,6 +33,7 @@ import UseFetchPrac from './useFetchPrac.jsx'
 import UseDebounce from './useDebounce.jsx'
 import UseLocalStorage from './useLocalStorage.jsx'
 import UncontrolledForm from './UncontrolledForm.jsx'
+import ControlledFormMultipleinputs from './ControlledFormMultipleInputs.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -68,7 +69,8 @@ createRoot(document.getElementById('root')).render(
     {/* <UseFetchPrac/> */}
     {/* <UseDebounce/> */}
     {/* < UseLocalStorage /> */}
-    <UncontrolledForm/>
+    {/* <UncontrolledForm/> */}
+    <ControlledFormMultipleinputs/>
   </StrictMode>
 )
 
