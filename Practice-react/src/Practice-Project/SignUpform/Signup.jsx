@@ -18,6 +18,7 @@ function SignupBox(form,setForm) {
                 <div>
                     <label>Full Name</label>
                     <input
+                        value = {form.Fullname}
                         type="text"
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
@@ -67,6 +68,14 @@ export default function Signup() {
         Email : "" ,
         Password : "" ,
         ConfirmPassword : "" ,
+         }
+
+         function HandledInput(event){
+            const {name , value} = event.target
+
+            setForm(
+                {...form , [name] : value}
+            )
          }
     
     )
