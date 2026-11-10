@@ -4,11 +4,10 @@ export default function UncontrolledForm(){
   
 
     const nameRef = useRef()
-
+  console.log("render")
     const HandleEvent =  (event)=>{
      console.log(nameRef.current.value)
     }
-
  return (
 
 
@@ -18,7 +17,7 @@ export default function UncontrolledForm(){
        <div>
         <label>Enter Name</label>
         <input
-        ref={nameRef}
+        ref={nameRef}   
         className="border border-black"
         type="text"  placeholder="Enter Name"/>
         <button
