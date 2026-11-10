@@ -34,6 +34,7 @@ import UseDebounce from './useDebounce.jsx'
 import UseLocalStorage from './useLocalStorage.jsx'
 import UncontrolledForm from './UncontrolledForm.jsx'
 import ControlledFormMultipleinputs from './ControlledFormMultipleInputs.jsx'
+import Signup from './Practice-Project/SignUpform/Signup.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -70,7 +71,8 @@ createRoot(document.getElementById('root')).render(
     {/* <UseDebounce/> */}
     {/* < UseLocalStorage /> */}
     {/* <UncontrolledForm/> */}
-    <ControlledFormMultipleinputs/>
+    {/* <ControlledFormMultipleinputs/> */}
+    <Signup/>
   </StrictMode>
 )
 
