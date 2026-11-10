@@ -5,13 +5,17 @@
         const [form,setForm] = useState({name : "" , email : ""})
         const [form2 ,setForm2] = useState({name : "", email : ""})
 
-    
+        function inputHandler(e){
+
+        }
+
         return(
             <div className=" h-screen w-screen flex flex-col justify-center items-center">
                 <div className="p-20">
                     <form action="">
                         <label>Enter name : </label>
                         <input 
+                        name = "name"
                         value={form.name}
                         onChange={(e)=>setForm({...form , name : e.target.value})}
                         placeholder="Name"
@@ -19,6 +23,7 @@
 
                         <label>Enter email : </label>
                         <input
+                        email = "email"
                         value={form.email}
                         onChange={(e)=>setForm({...form , email : e.target.value})}
                         placeholder="Email"
