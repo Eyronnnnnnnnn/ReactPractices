@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function SignupBox({setForm,HandledInput}) {
+function SignupBox({setForm,HandledInput,form}) {
     return (
         <div className="bg-white w-96 rounded-2xl p-7">
 
@@ -20,6 +20,7 @@ function SignupBox({setForm,HandledInput}) {
                     <input
                         value = {form.Fullname}
                         onChange={HandledInput}
+                        name = "Fullname"
                         type="text"
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
