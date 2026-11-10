@@ -1,4 +1,6 @@
-function SignupBox() {
+import { useState } from "react"
+
+function SignupBox(form,setForm) {
     return (
         <div className="bg-white w-96 rounded-2xl p-7">
 
@@ -60,9 +62,20 @@ function SignupBox() {
 }
 
 export default function Signup() {
+    const [form ,setForm] = useState(
+        {Fullname : "" ,
+        Email : "" ,
+        Password : "" ,
+        ConfirmPassword : "" ,
+         }
+    
+    )
     return (
         <div className="h-screen w-screen flex justify-center items-center bg-gray-800/60">
-            <SignupBox />
+            <SignupBox 
+            form = {form}
+            setForm = {setForm}
+            />
         </div>
     )
 }
