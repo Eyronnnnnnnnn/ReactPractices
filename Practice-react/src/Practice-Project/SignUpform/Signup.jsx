@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function SignupBox(form,setForm) {
+function SignupBox({setForm,HandledInput}) {
     return (
         <div className="bg-white w-96 rounded-2xl p-7">
 
@@ -19,6 +19,7 @@ function SignupBox(form,setForm) {
                     <label>Full Name</label>
                     <input
                         value = {form.Fullname}
+                        onChange={HandledInput}
                         type="text"
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
@@ -67,23 +68,25 @@ export default function Signup() {
         {Fullname : "" ,
         Email : "" ,
         Password : "" ,
-        ConfirmPassword : "" ,
+        ConfirmPassword : "" 
          }
+    
+    )
 
-         function HandledInput(event){
+  function HandledInput(event){
             const {name , value} = event.target
 
             setForm(
                 {...form , [name] : value}
             )
          }
-    
-    )
+
     return (
         <div className="h-screen w-screen flex justify-center items-center bg-gray-800/60">
             <SignupBox 
             form = {form}
             setForm = {setForm}
+            HandledInput ={HandledInput}
             />
         </div>
     )
