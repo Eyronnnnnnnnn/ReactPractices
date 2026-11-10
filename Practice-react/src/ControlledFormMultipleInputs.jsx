@@ -4,7 +4,15 @@ export default function ControlledFormMultipleinputs() {
   const [form, setForm] = useState({ name: "", email: "" });
   const [form2, setForm2] = useState({ name: "", email: "" });
 
-  function inputHandler(e) {}
+  function inputHandler(e) {
+
+    const {name , value} = e.target;
+
+    setForm2({...form2 , [name]: value})
+
+    console.log(e.target.name)
+console.log(e.target.value)
+  }
 
   return (
     <div className=" h-screen w-screen flex flex-col justify-center items-center">
@@ -38,7 +46,7 @@ export default function ControlledFormMultipleinputs() {
           name="name"
            placeholder="Name"
             type="text" 
-            onChange={inputHandler()}
+            onChange={inputHandler}
             />
             
           <label>Enter email : </label>
@@ -47,7 +55,7 @@ export default function ControlledFormMultipleinputs() {
            name="email"
            placeholder="Email" 
            type="email"
-            onChange={inputHandler()}
+            onChange={inputHandler}
            />
         </form>
       </div>
