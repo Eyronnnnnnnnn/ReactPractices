@@ -30,6 +30,9 @@ function SignupBox({setForm,HandledInput,form}) {
                 <div>
                     <label>Email</label>
                     <input
+                    name="Email"
+                    value = {form.Email}
+                    onChange={HandledInput}
                         type="email"
                         placeholder="Enter your email"
                         className="w-full border border-gray-400 rounded-md p-2"
@@ -39,6 +42,9 @@ function SignupBox({setForm,HandledInput,form}) {
                 <div>
                     <label>Password</label>
                     <input
+                    name="Password"
+                    value={form.Password}
+                    onChange={HandledInput}
                         type="password"
                         placeholder="Enter your password"
                         className="w-full border border-gray-400 rounded-md p-2"
@@ -48,6 +54,9 @@ function SignupBox({setForm,HandledInput,form}) {
                 <div>
                     <label>Confirm Password</label>
                     <input
+                    name="ConfirmPassword"
+                    onChange={HandledInput}
+                    value={form.ConfirmPassword}
                         type="password"
                         placeholder="Confirm your password"
                         className="w-full border border-gray-400 rounded-md p-2"
