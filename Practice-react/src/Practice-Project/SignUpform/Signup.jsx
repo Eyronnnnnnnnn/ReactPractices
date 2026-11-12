@@ -1,7 +1,8 @@
 import { useState } from "react"
 
-function SignupBox({setForm,HandledInput,form}) {
+function SignupBox({setForm,HandledInput,form,confirm}) {
     return (
+        
         <div className="bg-white w-96 rounded-2xl p-7">
 
             <div className="text-center mb-6">
@@ -25,6 +26,7 @@ function SignupBox({setForm,HandledInput,form}) {
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
+                    {form.Fullname === "" ? (<p className="text-green-500">Enter full name</p>) : (<p className="text-green-500"></p>    )}
                 </div>
 
                 <div>
@@ -41,6 +43,7 @@ function SignupBox({setForm,HandledInput,form}) {
 
                 <div>
                     <label>Password</label>
+                    
                     <input
                     name="Password"
                     value={form.Password}
@@ -61,9 +64,17 @@ function SignupBox({setForm,HandledInput,form}) {
                         placeholder="Confirm your password"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
+                    {
+                    form.ConfirmPassword && ( 
+                        confirm ?(<p className="text-red-500">Passwords do not match</p>) 
+                        : (<p className="text-green-500">Passwords match</p>) 
+                    )
+                   }
                 </div>
 
-                <button className="w-full bg-green-700 text-white p-2 rounded-md">
+                <button 
+                
+                className="w-full bg-green-700 text-white p-2 rounded-md">
                     Sign Up
                 </button>
 
@@ -80,8 +91,10 @@ export default function Signup() {
         Password : "" ,
         ConfirmPassword : "" 
          }
-    
     )
+
+    const  confirm = form.Password !== form.ConfirmPassword
+   const [submited ,setSubmited] = useState(false)
 
   function HandledInput(event){
             const {name , value} = event.target
@@ -91,12 +104,14 @@ export default function Signup() {
             )
          }
 
+     
     return (
         <div className="h-screen w-screen flex justify-center items-center bg-gray-800/60">
             <SignupBox 
             form = {form}
             setForm = {setForm}
             HandledInput ={HandledInput}
+            confirm = {confirm}
             />
         </div>
     )
