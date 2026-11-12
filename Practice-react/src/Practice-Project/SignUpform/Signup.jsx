@@ -39,6 +39,7 @@ function SignupBox({setForm,HandledInput,form,confirm,Signedup,submited}) {
                         placeholder="Enter your email"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
+                    {submited && (form.Email === "" ? <p className="text-green-500">enter email</p> : <p></p>)}
                 </div>
 
                 <div>
@@ -52,6 +53,7 @@ function SignupBox({setForm,HandledInput,form,confirm,Signedup,submited}) {
                         placeholder="Enter your password"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
+                    {submited && (form.Password === "" ? <p className="text-green-500">enter password</p> : <p></p>)}
                 </div>
 
                 <div>
