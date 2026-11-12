@@ -26,12 +26,12 @@ function SignupBox({setForm,HandledInput,form,confirm,Signedup,submited}) {
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
-                    {submited && (<p className="text-green-500">enter name</p>)}
+                    {submited && ( form.Fullname ==="" ? <p className="text-green-500">enter name</p> : <p></p>)}
                 </div>  
 
                 <div>
                     <label>Email</label>
-                    <input
+                    <input  
                     name="Email"
                     value = {form.Email}
                     onChange={HandledInput}
