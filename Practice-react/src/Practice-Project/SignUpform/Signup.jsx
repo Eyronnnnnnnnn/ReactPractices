@@ -96,6 +96,11 @@ export default function Signup() {
     const  confirm = form.Password !== form.ConfirmPassword
    const [submited ,setSubmited] = useState(false)
 
+
+   function Signedup(){
+     setSubmited(true)
+   }
+
   function HandledInput(event){
             const {name , value} = event.target
 
