@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function SignupBox({setForm,HandledInput,form,confirm}) {
+function SignupBox({setForm,HandledInput,form,confirm,Signedup,submited}) {
     return (
         
         <div className="bg-white w-96 rounded-2xl p-7">
@@ -26,7 +26,7 @@ function SignupBox({setForm,HandledInput,form,confirm}) {
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
-                    {form.Fullname === "" ? (<p className="text-green-500">Enter full name</p>) : (<p className="text-green-500"></p>    )}
+                    {submited === "" && (<p className="text-green-500">Enter full name</p>)}
                 </div>
 
                 <div>
@@ -73,7 +73,9 @@ function SignupBox({setForm,HandledInput,form,confirm}) {
                 </div>
 
                 <button 
-                
+                 onClick={()=>{
+                    Signedup()
+                 }}
                 className="w-full bg-green-700 text-white p-2 rounded-md">
                     Sign Up
                 </button>
@@ -117,6 +119,8 @@ export default function Signup() {
             setForm = {setForm}
             HandledInput ={HandledInput}
             confirm = {confirm}
+            Signedup = {Signedup}
+            submited = {submited}
             />
         </div>
     )
