@@ -39,7 +39,7 @@ function SignupBox({setForm,HandledInput,form,confirm,Signedup,submited}) {
                         placeholder="Enter your email"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
-                    {submited && (form.Email === "" ? <p className="text-green-500">enter email</p> : <p></p>)}
+                    {submited && ( form.Email ==="" ? <p>enter email</p>  : form.Email.includes("@") ? <p className="text-green-500">email is valid</p> : <p>email not valid</p>)}
                 </div>
 
                 <div>
