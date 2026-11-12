@@ -26,8 +26,8 @@ function SignupBox({setForm,HandledInput,form,confirm,Signedup,submited}) {
                         placeholder="Enter your name"
                         className="w-full border border-gray-400 rounded-md p-2"
                     />
-                    {submited === "" && (<p className="text-green-500">Enter full name</p>)}
-                </div>
+                    {submited && (<p className="text-green-500">enter name</p>)}
+                </div>  
 
                 <div>
                     <label>Email</label>
