@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 function useDebounce (value,delay){
     const [debounceValue , setdebounceValue] = useState(value);
@@ -18,10 +18,25 @@ function useDebounce (value,delay){
     return debounceValue
 }
 
-export default function useDebouncePracticev2(){
+export default function UseDebouncePracticev2(){
+
+    const username = [
+        {id : 1 , name : "aaron"},
+         {id : 2, name : "shane"},
+          {id : 3 , name : "ailene"},
+           {id : 4 , name : "gabby"},
+            {id : 5 , name : "mica"}
+    ]
+
+    const debounceSearch = useDebounce()
+
     return(
         <div>
-
+          {username.map((username)=>(
+            <div key={username.id}>
+                 <h1>{username.name}</h1>
+            </div>
+          ))}
         </div>
     )
 }
