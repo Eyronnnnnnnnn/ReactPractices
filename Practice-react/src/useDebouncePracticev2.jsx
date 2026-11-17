@@ -11,7 +11,7 @@ function useDebounce(value, delay) {
     return () => {
       clearTimeout(timer);
     };
-  }, [value]);
+  }, [value,delay]);
 
   return debounceValue;
 }
@@ -25,8 +25,9 @@ export default function UseDebouncePracticev2() {
     { id: 5, name: "mica" },
   ];
 
-  const debounceSearch = useDebounce();
-  const [search ,setSearch] = useState("");
+    const [search ,setSearch] = useState("");
+  const debounceSearch = useDebounce(search , 500);
+
 
   const filteredNames = username.filter((username)=> (
     username.name.toLowerCase().includes(debounceSearch.toLowerCase())
@@ -36,13 +37,15 @@ export default function UseDebouncePracticev2() {
     <div>
 
         <input
+        value={search}
+        onChange={(e)=> setSearch(e.target.value)}
         placeholder="Search Name"
         type="text" />
-      {username.map((username) => (
+      {filteredNames.map((username) => (
         <div key={username.id}>
           <h1>{username.name}</h1>
         </div>
       ))}
     </div>
-  );
+  ); 
 }
