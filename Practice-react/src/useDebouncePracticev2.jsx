@@ -32,8 +32,9 @@ export default function UseDebouncePracticev2() {
   const filteredNames = username.filter((username)=> (
     username.name.toLowerCase().includes(debounceSearch.toLowerCase())
   ))
+  
 
-  return (
+  return (  
     <div>
 
         <input
@@ -42,6 +43,7 @@ export default function UseDebouncePracticev2() {
         placeholder="Search Name"
         type="text" />
       {filteredNames.map((username) => (
+        
         <div key={username.id}>
           <h1>{username.name}</h1>
         </div>
