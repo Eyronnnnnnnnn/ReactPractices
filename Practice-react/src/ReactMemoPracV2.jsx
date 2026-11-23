@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 // Child Compontent
 const ChildComponent = memo(function ChildComponent({ count }) {
   console.log("rendered");
@@ -14,9 +14,11 @@ function ReactMemoPracV2() {
   const [count, setCount] = useState(0);
   const [stat, setStatic] = useState(0);
 
-  function HandleClick() {
-    setCount((count) => count + 1);
-  }
+ 
+
+  const HandleClick = useCallback(function HandleClick(){
+        setCount((count) => count + 1);
+  },[count])
 
   return (
     <div>
