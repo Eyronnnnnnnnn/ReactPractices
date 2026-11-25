@@ -27,20 +27,15 @@
         )
     }
 
-    function Home(){
-        return(
-            <div>
-                <h1>Home Page</h1>
-            </div>
-        )
-    }
-
+ 
     export default function ReactRouter(){
    return(
     <div>
        <BrowserRouter>
          <Routes>
             <Route path="/" element ={<HomePage/>}></Route>
+            <Route path="/" element = {<LogInPage/>}></Route>
+            <Route path="/" element = {<RegisterPage/>}></Route>
          </Routes>
        </BrowserRouter>
     </div>
