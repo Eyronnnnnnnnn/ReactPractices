@@ -32,11 +32,16 @@
    return(
     <div>
        <BrowserRouter>
+
+       
+
          <Routes>
             <Route path="/" element ={<HomePage/>}></Route>
             <Route path="/LogInPage" element = {<LogInPage/>}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
          </Routes>
+         <Link to ="/LogInPage">Login</Link>
+         <Link to = "RegisterPage">Register</Link>
        </BrowserRouter>
     </div>
    )
