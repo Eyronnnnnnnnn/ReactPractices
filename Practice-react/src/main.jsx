@@ -37,6 +37,7 @@ import ControlledFormMultipleinputs from './ControlledFormMultipleInputs.jsx'
 import Signup from './Practice-Project/SignUpform/Signup.jsx'
 import UseDebouncePracticev2 from './useDebouncePracticev2.jsx'
 import ReactMemoPracV2 from './ReactMemoPracV2.jsx'
+import ReactRouter from './ReactRouter.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -76,7 +77,8 @@ createRoot(document.getElementById('root')).render(
     {/* <ControlledFormMultipleinputs/> */}
     {/* <Signup/> */}
     {/* <UseDebouncePracticev2/> */}
-    <ReactMemoPracV2 />
+    {/* <ReactMemoPracV2 /> */}
+    <ReactRouter/>
   </StrictMode>
 )
 
