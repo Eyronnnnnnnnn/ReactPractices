@@ -34,8 +34,8 @@
        <BrowserRouter>
          <Routes>
             <Route path="/" element ={<HomePage/>}></Route>
-            <Route path="/" element = {<LogInPage/>}></Route>
-            <Route path="/" element = {<RegisterPage/>}></Route>
+            <Route path="/LogInPage" element = {<LogInPage/>}></Route>
+            <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
          </Routes>
        </BrowserRouter>
     </div>
