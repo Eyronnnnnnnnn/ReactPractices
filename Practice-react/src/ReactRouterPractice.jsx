@@ -1,4 +1,4 @@
-    import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+    import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
 
     function HomePage() {
     return (
@@ -71,10 +71,14 @@
 
     export default function ReactRouterPractice() {
     return (
-        <RouterBrowser>
+        <BrowserRouter>
         <Routes>
             <Route path="/" element = {<HomePage/>}></Route>
+            <Route path = "/LoginPage " element = {<LoginPage/>}></Route>
+            <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
+
+            <NavLink to={LoginPage}>Login</NavLink>
         </Routes>
-        </RouterBrowser>
+        </BrowserRouter>
     );
     }
