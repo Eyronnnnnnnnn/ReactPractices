@@ -7,6 +7,8 @@
             <h1 className="text-4xl font-bold text-gray-800">Welcome Home!</h1>
             <p className="text-gray-500 mt-3">Welcome to my simple website.</p>
               <NavLink to= "/LoginPage">Login</NavLink>
+              <NavLink to = "/RegisterPage">Register</NavLink>
+              
         </div>
         
         </div>
@@ -34,6 +36,7 @@
             <button className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
             Login
             </button>
+            <NavLink to = "/">back</NavLink>
         </div>
         </div>
     );
@@ -66,6 +69,7 @@
             <button className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
             Create Account
             </button>
+            <NavLink to = "/">back</NavLink>
         </div>
         </div>
     );
@@ -76,7 +80,7 @@
         <BrowserRouter>
         <Routes>
             <Route path="/" element = {<HomePage/>}></Route>
-            <Route path = "/LoginPage " element = {<LoginPage/>}></Route>
+            <Route path = "/LoginPage" element = {<LoginPage/>}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
 
           
