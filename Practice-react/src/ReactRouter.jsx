@@ -48,12 +48,15 @@
             <Route path="/LogInPage" element = {<LogInPage/>}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
          </Routes>
-         <Link to ="/LogInPage">Login</Link>
-         <Link to = "/RegisterPage">Register</Link>
+         
+         <NavLink 
+         className={({isActive})=>(
+            isActive ?  "text-blue-500 font-bold" : "text-gray-500"
+           )}
+         to ="/LogInPage">Login</NavLink>
+         <NavLink to = "/RegisterPage">Register</NavLink>
 
-        <nav>
-            <NavLink to = "/"></NavLink>
-        </nav>
+      
 
        </BrowserRouter>
     </div>
