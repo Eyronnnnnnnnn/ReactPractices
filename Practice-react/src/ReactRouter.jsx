@@ -1,5 +1,5 @@
 
-    import { BrowserRouter,Routes,Route,Link } from "react-router-dom"
+    import { BrowserRouter,Routes,Route,Link,NavLink } from "react-router-dom"
 
 
     function HomePage(){
@@ -50,6 +50,11 @@
          </Routes>
          <Link to ="/LogInPage">Login</Link>
          <Link to = "/RegisterPage">Register</Link>
+
+        <nav>
+            <NavLink to = "/"></NavLink>
+        </nav>
+
        </BrowserRouter>
     </div>
    )
