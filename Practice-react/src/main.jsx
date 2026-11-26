@@ -38,6 +38,7 @@ import Signup from './Practice-Project/SignUpform/Signup.jsx'
 import UseDebouncePracticev2 from './useDebouncePracticev2.jsx'
 import ReactMemoPracV2 from './ReactMemoPracV2.jsx'
 import ReactRouter from './ReactRouter.jsx'
+import 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -78,7 +79,7 @@ createRoot(document.getElementById('root')).render(
     {/* <Signup/> */}
     {/* <UseDebouncePracticev2/> */}
     {/* <ReactMemoPracV2 /> */}
-    <ReactRouter/>
+    {/* <ReactRouter/> */}
   </StrictMode>
 )
 
