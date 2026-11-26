@@ -6,7 +6,9 @@
         <div className="bg-white p-10 rounded-2xl shadow-lg text-center">
             <h1 className="text-4xl font-bold text-gray-800">Welcome Home!</h1>
             <p className="text-gray-500 mt-3">Welcome to my simple website.</p>
+              <NavLink to= "/LoginPage">Login</NavLink>
         </div>
+        
         </div>
     );
     }
@@ -77,7 +79,7 @@
             <Route path = "/LoginPage " element = {<LoginPage/>}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
 
-            <NavLink to={LoginPage}>Login</NavLink>
+          
         </Routes>
         </BrowserRouter>
     );
