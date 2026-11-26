@@ -43,6 +43,7 @@
        
 
          <Routes>
+            <Route path="*" element = {<PageNoFound/>}></Route>
             <Route path="/" element ={<HomePage/>}></Route>
             <Route path="/LogInPage" element = {<LogInPage/>}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
