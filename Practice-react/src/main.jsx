@@ -38,7 +38,7 @@ import Signup from './Practice-Project/SignUpform/Signup.jsx'
 import UseDebouncePracticev2 from './useDebouncePracticev2.jsx'
 import ReactMemoPracV2 from './ReactMemoPracV2.jsx'
 import ReactRouter from './ReactRouter.jsx'
-import 
+import ReactRouterPractice from './ReactRouterPractice.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -59,7 +59,6 @@ createRoot(document.getElementById('root')).render(
     {/* <UseRef /> */}
     {/* <InteractiveQuiz/> */}
     {/* <Propsdestructuring/> */}
-
     {/* <UseMemo/> */}
     {/* <UseMemov2/> */}
     {/* <UseCallBack/> */}
@@ -80,6 +79,7 @@ createRoot(document.getElementById('root')).render(
     {/* <UseDebouncePracticev2/> */}
     {/* <ReactMemoPracV2 /> */}
     {/* <ReactRouter/> */}
+    <ReactRouterPractice/>
   </StrictMode>
 )
 
