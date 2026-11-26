@@ -4,7 +4,7 @@
 
     function HomePage(){
         return(
-            <div>
+            <div className="bg-red-600 w-screen ">
                 <h1>Home Page</h1>
             </div>
         )
@@ -21,7 +21,7 @@
 
     function RegisterPage(){
         return(
-            <div>
+            <div className="bg-blue-800 w-screen h-10">
                 <h1>Register Page</h1>
             </div>
         )
@@ -41,8 +41,8 @@
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
          </Routes>
          <Link to ="/LogInPage">Login</Link>
-         <Link to = "RegisterPage">Register</Link>
+         <Link to = "/RegisterPage">Register</Link>
        </BrowserRouter>
     </div>
    )
-    }
+    }d
