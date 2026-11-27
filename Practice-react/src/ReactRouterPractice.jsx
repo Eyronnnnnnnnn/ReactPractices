@@ -1,5 +1,5 @@
     import { use, useState } from "react";
-import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link, NavLink,useNavigate } from "react-router-dom";
 
     function HomePage() {
     return (
@@ -153,7 +153,9 @@ import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
         };
 
         function HandleLogin(e){
-            if()
+            if(Account.Email === loginInput){
+                useNavigate(<Dashboard/>)
+            }
         }
 
     return (
