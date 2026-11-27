@@ -71,6 +71,11 @@
             Create Account
             </button>
             <NavLink to = "/">back</NavLink>
+            <NavLink
+            className={({isActive})=>(
+                isActive ? "text-blue-600 " : "text-black"
+            )}
+            to={RegisterPage}>Register</NavLink>
         </div>
         </div>
     );
