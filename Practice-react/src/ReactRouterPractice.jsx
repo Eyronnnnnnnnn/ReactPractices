@@ -36,6 +36,7 @@
             <button className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
             Login
             </button>
+            <NavLink to ="/LoginPage">Login</NavLink>
             <NavLink to = "/">back</NavLink>
         </div>
         </div>
