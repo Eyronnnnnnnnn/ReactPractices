@@ -1,4 +1,5 @@
-    import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
+    import { use, useState } from "react";
+import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
 
     function HomePage() {
     return (
@@ -13,7 +14,63 @@
         
         </div>
     );
+
     }
+
+    function Dashboard() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-8">
+
+      <h1 className="text-3xl font-bold text-gray-800">
+        Dashboard
+      </h1>
+      <p className="text-gray-500 mt-2 mb-8">
+        Welcome back, Aaron!
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-gray-500">Total Users</p>
+          <h2 className="text-3xl font-bold mt-2">1,240</h2>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-gray-500">Total Products</p>
+          <h2 className="text-3xl font-bold mt-2">350</h2>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-gray-500">Total Sales</p>
+          <h2 className="text-3xl font-bold mt-2">$5,200</h2>
+        </div>
+
+      </div>
+
+      {/* Recent Activity */}
+      <div className="bg-white p-6 rounded-xl shadow mt-8">
+        <h2 className="text-xl font-bold mb-4">
+          Recent Activity
+        </h2>
+
+        <p className="text-gray-600 border-b py-3">
+          New user registered
+        </p>
+
+        <p className="text-gray-600 border-b py-3">
+          New product added
+        </p>
+
+        <p className="text-gray-600 py-3">
+          New order received
+        </p>
+      </div>
+
+    </div>
+  );
+}
+
+
 
     function LoginPage() {
     return (
@@ -82,12 +139,29 @@
     }
 
     export default function ReactRouterPractice() {
+
+        const [loginInput,setloginInput] = useState("");
+        const [passwordInput, setpasswordInput] = useState();
+
+        const Account = {
+            Email : "Aaronguillermo@gmail.com",
+            password : 12345
+        };
+
+        function HandleLogin(e){
+            if()
+        }
+
     return (
         <BrowserRouter>
         <Routes>
             <Route path="/" element = {<HomePage/>}></Route>
-            <Route path = "/LoginPage" element = {<LoginPage/>}></Route>
+            <Route path = "/LoginPage" element = {<LoginPage
+            loginInput = {loginInput}
+            passwordInput = {passwordInput}
+            />}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
+            <Route path="/Dashboard" element ={<Dashboard/>}></Route>
 
           
         </Routes>
