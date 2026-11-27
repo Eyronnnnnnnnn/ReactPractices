@@ -72,19 +72,23 @@ import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
 
 
 
-    function LoginPage() {
+    function LoginPage({loginInput,passwordInput,setloginInput,setpasswordInput}) {
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="bg-white p-8 rounded-2xl shadow-lg w-80">
             <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
 
             <input
+            value={loginInput}
+            onChange={(e)=> setloginInput(e.target.value)}
             type="email"
             placeholder="Email"
             className="w-full border p-3 rounded-lg mb-4 outline-blue-500"
             />
 
             <input
+            value={passwordInput}
+            onChange={(e)=> setpasswordInput(e.target.value)}
             type="password"
             placeholder="Password"
             className="w-full border p-3 rounded-lg mb-5 outline-blue-500"
@@ -159,6 +163,8 @@ import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
             <Route path = "/LoginPage" element = {<LoginPage
             loginInput = {loginInput}
             passwordInput = {passwordInput}
+            setloginInput = {setloginInput}
+            setpasswordInput = {setpasswordInput}
             />}></Route>
             <Route path="/RegisterPage" element = {<RegisterPage/>}></Route>
             <Route path="/Dashboard" element ={<Dashboard/>}></Route>
